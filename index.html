@@ -37,13 +37,15 @@
     </div>
 
     <script>
-        const travels = [
-            { city: "Cairo, Luxor, Hurghada", date: "2024-10-26", distance: 3310, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
-            { city: "Batumi, Georgia", date: "2024-08-20", distance: 3935, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/60/12/f0/batumi-boulevard.jpg?w=500&h=200" },
-            { city: "Montenegro, Croatia, Italy", date: "2024-07-22", distance: 1660 , photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
-            { city: "UAE, Qatar, Bahrein", date: "2025-02-15", distance: 5170, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
-            { city: "Antarctica", date: "2024-12-21", distance: 13950, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" }
-        ];
+	
+		const travels = [
+			{ city: "Cairo, Luxor, Hurghada", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
+			{ city: "Batumi, Georgia", date: "2024-08-20", distance: 3935, days: 2, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/60/12/f0/batumi-boulevard.jpg?w=500&h=200" },
+			{ city: "Montenegro, Croatia, Italy", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
+			{ city: "UAE, Qatar, Bahrein", date: "2025-02-15", distance: 5170, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
+			{ city: "Antarctica", date: "2024-12-21", distance: 13950, days: 16, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" }
+		];
+
 
         travels.sort((a, b) => new Date(a.date) - new Date(b.date));
 
@@ -53,22 +55,24 @@
             return Math.ceil((travelDate - today) / (1000 * 60 * 60 * 24));
         }
 
-        function createCard(travel) {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <img src="${travel.photo}" alt="${travel.city}">
-                <div class="card-content">
-                    <h2 class="title">${travel.city}</h2>
-                    <p class="subtitle">${daysUntil(travel.date)} More Days</p>
-                    <div class="sub-subtitle">
-					<span><i class="fas fa-calendar-alt icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', {day: '2-digit', month: 'long', year: 'numeric'})}</span>
-                    <span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
+		function createCard(travel) {
+			const card = document.createElement('div');
+			card.className = 'card';
+			card.innerHTML = `
+				<img src="${travel.photo}" alt="${travel.city}">
+				<div class="card-content">
+					<h2 class="title">${travel.city}</h2>
+					<p class="subtitle">${daysUntil(travel.date)} More Days</p>
+					<div class="sub-subtitle">
+						<span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
+						<span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
+						<span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
 					</div>
-                </div>
-            `;
-            return card;
-        }
+				</div>
+			`;
+			return card;
+		}
+
 
         const container = document.querySelector('.container');
         travels.forEach(travel => {
