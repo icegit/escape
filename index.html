@@ -8,6 +8,13 @@
     <style>
 	
         body { font-family: Arial, sans-serif; }
+		
+
+		.past { color: gray; }
+		.past img { filter: grayscale(100%); } 
+		.past .subtitle { color: gray !important; } 
+
+		
         .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
         .card { margin: 20px; width: 25%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .card img { width: 100%; height: 200px; object-fit: cover; }
@@ -27,11 +34,29 @@
 		.sub-subtitle span {
 			margin-right: 0;
 			color: #AAA;
+		}
+		
+		#toggleButton {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			padding: 10px 20px;
+			background-color: #eee;
+			border: none;
+			cursor: pointer;
+			border-radius: 5px;
+			color: #999;
+		}
+		#toggleButton.active {
+			background-color: #f5f5f5;
 		}		
 		
     </style>
 </head>
 <body>
+
+    <button id="toggleButton" class="active">All/Future</button>
+	
     <div class="container">
         <!-- Cards will be added here by JavaScript -->
     </div>
@@ -39,6 +64,7 @@
     <script>
 	
 		const travels = [
+			{ city: "Mexico", date: "2022-01-16", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },		
 			{ city: "Cairo, Luxor, Hurghada", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
 			{ city: "Batumi, Georgia", date: "2024-08-20", distance: 3935, days: 2, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/60/12/f0/batumi-boulevard.jpg?w=500&h=200" },
 			{ city: "Montenegro, Croatia, Italy", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
@@ -48,21 +74,70 @@
 
 
         travels.sort((a, b) => new Date(a.date) - new Date(b.date));
+		
+		function daysUntil(date) {
+		
+			const today = new Date();
+			const travelDate = new Date(date);
+			const past = travelDate < today;
 
-        function daysUntil(date) {
-            const today = new Date();
-            const travelDate = new Date(date);
-            return Math.ceil((travelDate - today) / (1000 * 60 * 60 * 24));
-        }
+			let years = travelDate.getFullYear() - today.getFullYear();
+			let months = travelDate.getMonth() - today.getMonth();
+			let days = travelDate.getDate() - today.getDate();
+
+			if (days < 0) {
+				months--;
+				days += new Date(travelDate.getFullYear(), travelDate.getMonth(), 0).getDate();
+			}
+			if (months < 0) {
+				years--;
+				months += 12;
+			}
+
+			let result = '';
+			if (years) result += `${Math.abs(years)} ${years === 1 ? 'Year' : 'Years'} `;
+			if (months) result += `${Math.abs(months)} ${months === 1 ? 'Month' : 'Months'} `;
+			if (days) result += `${Math.abs(days)} ${days === 1 ? 'Day' : 'Days'} `;
+
+			if (past) {
+				return result + 'ago';
+			} else {
+				return result + 'more';
+			}
+		}
+
+
+		let showAll = false; // Toggle state
+
+		document.getElementById('toggleButton').addEventListener('click', () => {
+			showAll = !showAll; // Toggle the state
+			document.getElementById('toggleButton').classList.toggle('active');
+			displayTravels(); // Refresh the travel display based on the new state
+		});
+
+		function displayTravels() {
+			const container = document.querySelector('.container');
+			container.innerHTML = ''; // Clear existing cards
+			const today = new Date();
+
+			travels.filter(travel => showAll || new Date(travel.date) > today).forEach(travel => {
+				container.appendChild(createCard(travel));
+			});
+		}
+		
 
 		function createCard(travel) {
 			const card = document.createElement('div');
 			card.className = 'card';
+			const isPast = new Date(travel.date) < new Date();  // Check if the travel date is in the past
+			if (isPast) {
+				card.classList.add('past');  // Add the 'past' class if the date is past
+			}
 			card.innerHTML = `
 				<img src="${travel.photo}" alt="${travel.city}">
 				<div class="card-content">
 					<h2 class="title">${travel.city}</h2>
-					<p class="subtitle">${daysUntil(travel.date)} More Days</p>
+					<p class="subtitle">${daysUntil(travel.date)}</p>
 					<div class="sub-subtitle">
 						<span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
 						<span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
@@ -74,10 +149,10 @@
 		}
 
 
-        const container = document.querySelector('.container');
-        travels.forEach(travel => {
-            container.appendChild(createCard(travel));
-        });
+		displayTravels(); // Initial display of travels
+
+	
+	
     </script>
 </body>
 </html>
