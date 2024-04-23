@@ -23,7 +23,7 @@
     <script>
         const travels = [
             { city: "Cairo, Luxor, Hurghada", date: "2024-10-26", distance: 3310, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
-			
+	    { city: "Batumi, Georgia", date: "2024-08-20", distance: 3935, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/60/12/f0/batumi-boulevard.jpg?w=500&h=200" },		
             <!-- { city: "Athens, Egypt", date: "2024-07-22", distance: 2610, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c0/98/c5/caption.jpg?w=500&h=200" }, -->
 			
 			{ city: "Greece, Montenegro, Croatia, Italy", date: "2024-07-22", distance: 1660 , photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" } ,
@@ -60,8 +60,8 @@
                 <div class="card-content">
                     <h2 class="title">${travel.city}</h2>
                     <p class="subtitle">${daysUntil(travel.date)} More Days</p>
-                    <p class="sub-subtitle">Travel Date: ${travel.date}</p>
-                    <p class="sub-subtitle">Distance: ${travel.distance} km</p>
+                    <p class="sub-subtitle">Travel Date: ${travel.date.toLocaleString()}</p>
+                    <p class="sub-subtitle">Distance: ${travel.distance.toLocaleString()} km</p>
                 </div>
             `;
             return card;
