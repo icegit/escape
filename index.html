@@ -6,8 +6,9 @@
     <title>Travel Destinations</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 10px; margin-top: 30px;}
+        body { font-family: "Trebuchet MS", Helvetica, sans-serif;}
+		
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; margin-top: 30px;}
 		
         .card {
             margin: 20px;
@@ -18,15 +19,24 @@
         .card-content { padding: 15px; }
         .title { font-size: 24px; margin-bottom: 5px; }
         .subtitle { font-size: 18px; color: green; font-weight: 500; }
-        .sub-subtitle { font-size: 14px; color: #666; }
+		
+		.sub-subtitle {
+			display: flex; 
+			justify-content: space-between; /* This spreads out the children evenly */
+			align-items: center;
+			width: 100%;
+			margin: 30px 0 10px; /* Adjusted margin for better spacing */
+			color: #AAA;
+		}
+		
         .icon { margin-right: 10px; color: #AAA; }
         .past { color: gray; }
         .past img { filter: grayscale(100%); }
         .past .subtitle { color: gray !important; }
 
-        @media (max-width: 760px) {
-            .card { width: calc(100% - 40px); /* One card per row on mobile */ }
-			margin: 50px 0;
+        @media (max-width: 800px) {
+			.container {padding: 0px;}
+            .card { width: calc(100% - 40px); 	margin: 50px 0;	}
         }
 
         #toggleButton {
