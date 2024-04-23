@@ -60,7 +60,7 @@
                 <div class="card-content">
                     <h2 class="title">${travel.city}</h2>
                     <p class="subtitle">${daysUntil(travel.date)} More Days</p>
-                    <p class="sub-subtitle">Travel Date: ${travel.date.toLocaleString()}</p>
+                    <p class="sub-subtitle">Travel Date: ${travel.date..toLocaleDateString('en-GB', {day: '2-digit', month: 'long', year: 'numeric'})}</p>
                     <p class="sub-subtitle">Distance: ${travel.distance.toLocaleString()} km</p>
                 </div>
             `;
