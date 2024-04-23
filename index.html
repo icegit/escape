@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+        .card { margin: 20px; width: 30%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        .title { font-size: 24px; margin-bottom: 5px; }
+        .subtitle { font-size: 18px; color: #333; }
+        .sub-subtitle { font-size: 14px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cards will be added here by JavaScript -->
+    </div>
+
+    <script>
+        const travels = [
+            { city: "Cairo, Luxor, Hurghada", date: "2024-10-26", distance: 3310, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
+			
+            <!-- { city: "Athens, Egypt", date: "2024-07-22", distance: 2610, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c0/98/c5/caption.jpg?w=500&h=200" }, -->
+			
+			{ city: "Greece, Montenegro, Croatia, Italy", date: "2024-07-22", distance: 1660 , photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" } ,
+			
+			
+            { city: "Dubai, Abu Dhabi, Qatar, Bahrein", date: "2025-02-15", distance: 5170, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
+			
+			<!-- { city: "Doha, Qatar", date: "2025-02-16", distance: 5200, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/c9/8f/b0/view-from-corniche.jpg?w=500&h=200" }, -->
+			
+			
+			<!-- { city: "Bahrain", date: "2025-02-17", distance: 5200, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fb/89/bahrain.jpg?w=500&h=200" }, -->
+			
+			
+			
+			 { city: "Antarctica", date: "2024-12-21", distance: 13950, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" }
+        ];
+
+        travels.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        function daysUntil(date) {
+            const today = new Date();
+            const travelDate = new Date(date);
+            return Math.ceil((travelDate - today) / (1000 * 60 * 60 * 24));
+        }
+
+        function createCard(travel) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <!--<img src="https://via.placeholder.com/500x200.png?text=${encodeURIComponent(travel.city)}" alt="${travel.city}">-->
+				
+				
+				<img src="${travel.photo}">
+                <div class="card-content">
+                    <h2 class="title">${travel.city}</h2>
+                    <p class="subtitle">${daysUntil(travel.date)} More Days</p>
+                    <p class="sub-subtitle">Travel Date: ${travel.date}</p>
+                    <p class="sub-subtitle">Distance: ${travel.distance} km</p>
+                </div>
+            `;
+            return card;
+        }
+
+        const container = document.querySelector('.container');
+        travels.forEach(travel => {
+            container.appendChild(createCard(travel));
+        });
+    </script>
+</body>
+</html>
