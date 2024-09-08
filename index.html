@@ -62,27 +62,22 @@
     </div>
 
     <script>
-	
 		const travels = [
 			{ city: "Mexico", date: "2022-01-16", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },		
 			{ city: "Cairo, Luxor, Hurghada", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
-			{ city: "Batumi, Georgia", date: "2024-08-20", distance: 3935, days: 2, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/60/12/f0/batumi-boulevard.jpg?w=500&h=200" },
+			
 			{ city: "Montenegro, Croatia, Italy", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
 			{ city: "UAE, Qatar, Bahrein", date: "2025-02-15", distance: 5170, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
 			{ city: "Antarctica", date: "2024-12-21", distance: 13950, days: 16, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" }
 		];
 
-
         travels.sort((a, b) => new Date(a.date) - new Date(b.date));
 		
 		function daysUntil(date) {
-		
 			const today = new Date();
 			const travelDate = new Date(date);
 			const timeDifference = travelDate - today;
 			const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // Calculate days remaining
-			
-			const past = travelDate < today;
 
 			let years = travelDate.getFullYear() - today.getFullYear();
 			let months = travelDate.getMonth() - today.getMonth();
@@ -102,13 +97,8 @@
 			if (months) result += `${Math.abs(months)} ${months === 1 ? 'Month' : 'Months'} `;
 			if (days) result += `${Math.abs(days)} ${days === 1 ? 'Day' : 'Days'} `;
 
-			if (past) {
-				return result + 'ago';
-			} else {
-				return result + '(' + daysRemaining +')';
-			}
+			return { fullText: result.trim(), daysRemaining };
 		}
-
 
 		let showAll = false; // Toggle state
 
@@ -136,26 +126,41 @@
 			if (isPast) {
 				card.classList.add('past');  // Add the 'past' class if the date is past
 			}
+
+			const { fullText, daysRemaining } = daysUntil(travel.date);
+
+			const subtitle = document.createElement('p');
+			subtitle.className = 'subtitle';
+			subtitle.textContent = fullText; // Initially show "1 Month 18 Days"
+
+			// Add hover and click listeners to toggle between full text and days
+			subtitle.addEventListener('mouseover', () => subtitle.textContent = `${daysRemaining} Days`);
+			subtitle.addEventListener('mouseout', () => subtitle.textContent = fullText);
+			subtitle.addEventListener('click', () => subtitle.textContent = subtitle.textContent === fullText ? `${daysRemaining} Days` : fullText); // For mobile/tap toggle
+
 			card.innerHTML = `
 				<img src="${travel.photo}" alt="${travel.city}">
 				<div class="card-content">
 					<h2 class="title">${travel.city}</h2>
-					<p class="subtitle">${daysUntil(travel.date)}</p>
-					<div class="sub-subtitle">
-						<span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
-						<span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
-						<span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
-					</div>
 				</div>
 			`;
+
+			// Append subtitle and other content
+			card.querySelector('.card-content').appendChild(subtitle);
+
+			const subSubtitle = document.createElement('div');
+			subSubtitle.className = 'sub-subtitle';
+			subSubtitle.innerHTML = `
+				<span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+				<span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
+				<span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
+			`;
+			card.querySelector('.card-content').appendChild(subSubtitle);
+
 			return card;
 		}
 
-
 		displayTravels(); // Initial display of travels
-
-	
-	
     </script>
 </body>
 </html>
