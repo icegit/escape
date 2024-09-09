@@ -134,8 +134,8 @@
 			subtitle.textContent = fullText; // Initially show "1 Month 18 Days"
 
 			// Add hover and click listeners to toggle between full text and days
-			subtitle.addEventListener('mouseover', () => subtitle.textContent = `${daysRemaining} Days`);
-			subtitle.addEventListener('mouseout', () => subtitle.textContent = fullText);
+			// subtitle.addEventListener('mouseover', () => subtitle.textContent = `${daysRemaining} Days`);
+			// subtitle.addEventListener('mouseout', () => subtitle.textContent = fullText);
 			subtitle.addEventListener('click', () => subtitle.textContent = subtitle.textContent === fullText ? `${daysRemaining} Days` : fullText); // For mobile/tap toggle
 
 			card.innerHTML = `
