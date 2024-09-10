@@ -131,12 +131,23 @@
 
 			const subtitle = document.createElement('p');
 			subtitle.className = 'subtitle';
-			subtitle.textContent = fullText; // Initially show "1 Month 18 Days"
+			subtitle.textContent = fullText; // Initially show "1 Month 16 Days"
 
-			// Add hover and click listeners to toggle between full text and days
-			// subtitle.addEventListener('mouseover', () => subtitle.textContent = `${daysRemaining} Days`);
-			// subtitle.addEventListener('mouseout', () => subtitle.textContent = fullText);
-			subtitle.addEventListener('click', () => subtitle.textContent = subtitle.textContent === fullText ? `${daysRemaining} Days` : fullText); // For mobile/tap toggle
+			// Add click listener to toggle between three states
+			let clickCount = 0;
+
+			subtitle.addEventListener('click', () => {
+			    clickCount = (clickCount + 1) % 3; // Cycle between 0, 1, and 2
+
+			    if (clickCount === 0) {
+			        subtitle.textContent = fullText; // First state: "1 Month 16 Days"
+			    } else if (clickCount === 1) {
+			        subtitle.textContent = `${daysRemaining} Days`; // Second state: "46 Days"
+			    } else if (clickCount === 2) {
+			        const weeksRemaining = (daysRemaining / 7).toFixed(1); // Third state: "6.5 Weeks"
+			        subtitle.textContent = `${weeksRemaining} Weeks`;
+			    }
+			});
 
 			card.innerHTML = `
 				<img src="${travel.photo}" alt="${travel.city}">
