@@ -1,182 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Destinations</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body { font-family: "Trebuchet MS", Helvetica, sans-serif;}
-		
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; margin-top: 30px;}
-		
-        .card {
-            margin: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: calc(100% / 3 - 40px); /* Three cards per row on desktop */
-        }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 15px; }
-        .title { font-size: 24px; margin-bottom: 5px; }
-        .subtitle { font-size: 18px; color: green; font-weight: 500; }
-		
-		.sub-subtitle {
-			display: flex; 
-			justify-content: space-between; /* This spreads out the children evenly */
-			align-items: center;
-			width: 100%;
-			margin: 30px 0 10px; /* Adjusted margin for better spacing */
-			color: #AAA;
-		}
-		
-        .icon { margin-right: 10px; color: #AAA; }
-        .past { color: gray; }
-        .past img { filter: grayscale(100%); }
-        .past .subtitle { color: gray !important; }
-
-        @media (max-width: 800px) {
-			.container {padding: 0px;}
-            .card { width: calc(100% - 40px); 	margin: 50px 0;	}
-        }
-
-        #toggleButton {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 10px 20px;
-            background-color: #eee;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            color: #999;
-        }
-        #toggleButton.active { background-color: #f5f5f5; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Destinations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body { font-family: "Trebuchet MS", Helvetica, sans-serif; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; margin-top: 30px; }
+    .card {
+      margin: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: calc(100% / 3 - 40px); /* Three cards per row on desktop */
+    }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-content { padding: 15px; }
+    .title { font-size: 24px; margin-bottom: 5px; }
+    .subtitle { font-size: 18px; color: green; font-weight: 500; cursor: pointer; }
+    .sub-subtitle {
+      display: flex; 
+      justify-content: space-between; /* This spreads out the children evenly */
+      align-items: center;
+      width: 100%;
+      margin: 30px 0 10px; /* Adjusted margin for better spacing */
+      color: #AAA;
+    }
+    .icon { margin-right: 10px; color: #AAA; }
+    .past { color: gray; }
+    .past img { filter: grayscale(100%); }
+    .past .subtitle { color: gray !important; }
+    @media (max-width: 800px) {
+      .container { padding: 0px; }
+      .card { width: calc(100% - 40px); margin: 50px 0; }
+    }
+    #toggleButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #eee;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #999;
+    }
+    #toggleButton.active { background-color: #f5f5f5; }
+  </style>
 </head>
 <body>
+  <button id="toggleButton" class="active">All/Future</button>
+  
+  <div class="container">
+    <!-- Cards will be added here by JavaScript -->
+  </div>
 
-    <button id="toggleButton" class="active">All/Future</button>
-	
-    <div class="container">
-        <!-- Cards will be added here by JavaScript -->
-    </div>
+  <script>
+    const travels = [
+      { city: "Mexico Tour", date: "2022-01-16", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
+      { city: "Egypt Tour", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
+      { city: "Mediterranian Cruise", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
+      { city: "Persian Gulf Cruise", date: "2025-02-15", distance: 5170, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
+      { city: "Antarctica Cruise", date: "2024-12-21", distance: 13950, days: 16, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" },
+      { city: "Bordeaux", date: "2025-04-8", distance: 1085, days: 4, photo: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/481000/481844-Bordeaux.jpg" },
+      { city: "Milan", date: "2025-04-15", distance: 1078, days: 3, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/9e/ba/dc/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_13aff80bdcc5efb3e0bb" },
+      { city: "Bali", date: "2025-04-18", distance: 12110, days: 14, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/b9/ed/e6/caption.jpg?w=1400&h=500&s=1" },
+      { city: "Canary Islands", date: "2025-05-28", distance: 3800, days: 5, photo: "https://www.webtenerife.co.uk/-/media/files/que-hacer/ocio/parques-de-ocio/siam-park-tenerife/ppalweb-siampark-2015.jpg" },
+      { city: "Great Wall Marathon", date: "2025-05-13", distance: 7817, days: 7, photo: "https://great-wall-marathon.com/sites/default/files/images/China_GreatWallMarathon_2018_0142_AT.jpg" }
+    ];
 
-    <script>
-		const travels = [
-			{ city: "Mexico Tour", date: "2022-01-16", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },		
-			{ city: "Egypt Tour", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
-			
-			{ city: "Mediterranian Cruise", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
-			{ city: "Persian Gulf Cruise", date: "2025-02-15", distance: 5170, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
-			{ city: "Antarctica Cruise", date: "2024-12-21", distance: 13950, days: 16, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" },
-			{ city: "Bordeaux", date: "2025-04-8", distance: 1085, days: 4, photo: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/481000/481844-Bordeaux.jpg" },
-			{ city: "Milan", date: "2025-04-15", distance: 1078, days: 3, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/9e/ba/dc/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_13aff80bdcc5efb3e0bb" },
-			{ city: "Bali", date: "2025-04-18", distance: 12110, days: 14, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/b9/ed/e6/caption.jpg?w=1400&h=500&s=1" },
-			{ city: "Canary Islands", date: "2025-05-28", distance: 3800, days: 5, photo: "https://www.webtenerife.co.uk/-/media/files/que-hacer/ocio/parques-de-ocio/siam-park-tenerife/ppalweb-siampark-2015.jpg" },
-			{ city: "Great Wall Marathon", date: "2025-05-13", distance: 7817, days: 7, photo: "https://great-wall-marathon.com/sites/default/files/images/China_GreatWallMarathon_2018_0142_AT.jpg" }
-		];
+    travels.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        travels.sort((a, b) => new Date(a.date) - new Date(b.date));
-		
-		function daysUntil(date) {
-			const today = new Date();
-			const travelDate = new Date(date);
-			const timeDifference = travelDate - today;
-			const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // Calculate days remaining
+    // Global toggle for display format:
+    // 0: full text, 1: days, 2: weeks
+    let globalClickCount = 0;
+    let showAll = false; // Toggle state for All/Future
 
-			let years = travelDate.getFullYear() - today.getFullYear();
-			let months = travelDate.getMonth() - today.getMonth();
-			let days = travelDate.getDate() - today.getDate();
+    document.getElementById('toggleButton').addEventListener('click', () => {
+      showAll = !showAll;
+      document.getElementById('toggleButton').classList.toggle('active');
+      displayTravels();
+    });
 
-			if (days < 0) {
-				months--;
-				days += new Date(travelDate.getFullYear(), travelDate.getMonth(), 0).getDate();
-			}
-			if (months < 0) {
-				years--;
-				months += 12;
-			}
+    function daysUntil(date) {
+      const today = new Date();
+      const travelDate = new Date(date);
+      const timeDifference = travelDate - today;
+      const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // Calculate days remaining
 
-			let result = '';
-			if (years) result += `${Math.abs(years)} ${years === 1 ? 'Year' : 'Years'} `;
-			if (months) result += `${Math.abs(months)} ${months === 1 ? 'Month' : 'Months'} `;
-			if (days) result += `${Math.abs(days)} ${days === 1 ? 'Day' : 'Days'} `;
+      let years = travelDate.getFullYear() - today.getFullYear();
+      let months = travelDate.getMonth() - today.getMonth();
+      let days = travelDate.getDate() - today.getDate();
 
-			return { fullText: result.trim(), daysRemaining };
-		}
+      if (days < 0) {
+        months--;
+        days += new Date(travelDate.getFullYear(), travelDate.getMonth(), 0).getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
 
-		let showAll = false; // Toggle state
+      let result = '';
+      if (years) result += `${Math.abs(years)} ${years === 1 ? 'Year' : 'Years'} `;
+      if (months) result += `${Math.abs(months)} ${months === 1 ? 'Month' : 'Months'} `;
+      if (days) result += `${Math.abs(days)} ${days === 1 ? 'Day' : 'Days'} `;
 
-		document.getElementById('toggleButton').addEventListener('click', () => {
-			showAll = !showAll; // Toggle the state
-			document.getElementById('toggleButton').classList.toggle('active');
-			displayTravels(); // Refresh the travel display based on the new state
-		});
+      return { fullText: result.trim(), daysRemaining };
+    }
 
-		function displayTravels() {
-			const container = document.querySelector('.container');
-			container.innerHTML = ''; // Clear existing cards
-			const today = new Date();
+    function displayTravels() {
+      const container = document.querySelector('.container');
+      container.innerHTML = ''; // Clear existing cards
+      const today = new Date();
 
-			travels.filter(travel => showAll || new Date(travel.date) > today).forEach(travel => {
-				container.appendChild(createCard(travel));
-			});
-		}
-		
+      travels.filter(travel => showAll || new Date(travel.date) > today)
+             .forEach(travel => container.appendChild(createCard(travel)));
+    }
 
-		function createCard(travel) {
-			const card = document.createElement('div');
-			card.className = 'card';
-			const isPast = new Date(travel.date) < new Date();  // Check if the travel date is in the past
-			if (isPast) {
-				card.classList.add('past');  // Add the 'past' class if the date is past
-			}
+    function createCard(travel) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      const isPast = new Date(travel.date) < new Date();  // Check if the travel date is in the past
+      if (isPast) {
+        card.classList.add('past');  // Add the 'past' class if the date is past
+      }
 
-			const { fullText, daysRemaining } = daysUntil(travel.date);
+      const { fullText, daysRemaining } = daysUntil(travel.date);
+      const subtitle = document.createElement('p');
+      subtitle.className = 'subtitle';
 
-			const subtitle = document.createElement('p');
-			subtitle.className = 'subtitle';
-			subtitle.textContent = fullText; // Initially show "1 Month 16 Days"
+      // Set subtitle text based on the global toggle
+      if (globalClickCount % 3 === 0) {
+        subtitle.textContent = fullText;
+      } else if (globalClickCount % 3 === 1) {
+        subtitle.textContent = `${daysRemaining} Days`;
+      } else if (globalClickCount % 3 === 2) {
+        const weeksRemaining = (daysRemaining / 7).toFixed(1);
+        subtitle.textContent = `${weeksRemaining} Weeks`;
+      }
 
-			// Add click listener to toggle between three states
-			let clickCount = 0;
+      // When any subtitle is clicked, update the global state and re-display all cards.
+      subtitle.addEventListener('click', () => {
+        globalClickCount = (globalClickCount + 1) % 3;
+        displayTravels();
+      });
 
-			subtitle.addEventListener('click', () => {
-			    clickCount = (clickCount + 1) % 3; // Cycle between 0, 1, and 2
+      card.innerHTML = `
+        <img src="${travel.photo}" alt="${travel.city}">
+        <div class="card-content">
+          <h2 class="title">${travel.city}</h2>
+        </div>
+      `;
+      card.querySelector('.card-content').appendChild(subtitle);
 
-			    if (clickCount === 0) {
-			        subtitle.textContent = fullText; // First state: "1 Month 16 Days"
-			    } else if (clickCount === 1) {
-			        subtitle.textContent = `${daysRemaining} Days`; // Second state: "46 Days"
-			    } else if (clickCount === 2) {
-			        const weeksRemaining = (daysRemaining / 7).toFixed(1); // Third state: "6.5 Weeks"
-			        subtitle.textContent = `${weeksRemaining} Weeks`;
-			    }
-			});
+      const subSubtitle = document.createElement('div');
+      subSubtitle.className = 'sub-subtitle';
+      subSubtitle.innerHTML = `
+        <span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+        <span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
+        <span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
+      `;
+      card.querySelector('.card-content').appendChild(subSubtitle);
 
-			card.innerHTML = `
-				<img src="${travel.photo}" alt="${travel.city}">
-				<div class="card-content">
-					<h2 class="title">${travel.city}</h2>
-				</div>
-			`;
+      return card;
+    }
 
-			// Append subtitle and other content
-			card.querySelector('.card-content').appendChild(subtitle);
-
-			const subSubtitle = document.createElement('div');
-			subSubtitle.className = 'sub-subtitle';
-			subSubtitle.innerHTML = `
-				<span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
-				<span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
-				<span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
-			`;
-			card.querySelector('.card-content').appendChild(subSubtitle);
-
-			return card;
-		}
-
-		displayTravels(); // Initial display of travels
-    </script>
+    displayTravels(); // Initial display of travels
+  </script>
 </body>
 </html>
