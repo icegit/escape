@@ -13,21 +13,29 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       width: calc(100% / 3 - 40px); /* Three cards per row on desktop */
     }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card img { 
+      width: 100%; 
+      height: 200px; 
+      object-fit: cover; 
+      transition: filter 0.3s ease; 
+    }
+    /* Past events: images are grayscale */
+    .past img { filter: grayscale(100%); }
+    /* On hover, remove grayscale for past event images */
+    .past img:hover { filter: none; }
     .card-content { padding: 15px; }
     .title { font-size: 24px; margin-bottom: 5px; }
     .subtitle { font-size: 18px; color: green; font-weight: 500; cursor: pointer; }
     .sub-subtitle {
       display: flex; 
-      justify-content: space-between; /* This spreads out the children evenly */
+      justify-content: space-between;
       align-items: center;
       width: 100%;
-      margin: 30px 0 10px; /* Adjusted margin for better spacing */
+      margin: 30px 0 10px;
       color: #AAA;
     }
     .icon { margin-right: 10px; color: #AAA; }
     .past { color: gray; }
-    .past img { filter: grayscale(100%); }
     .past .subtitle { color: gray !important; }
     @media (max-width: 800px) {
       .container { padding: 0px; }
@@ -56,6 +64,7 @@
 
   <script>
     const travels = [
+      { city: "Greenland", date: "2015-01-30", distance: 3133, days: 5, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/c5/8c/51/isbjerge.jpg?w=500&h=200" },
       { city: "Mexico Tour", date: "2022-01-16", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
       { city: "Egypt Tour", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
       { city: "Mediterranian Cruise", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
@@ -71,7 +80,7 @@
     travels.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     // Global toggle for display format:
-    // 0: full text, 1: days, 2: weeks
+    // 0: full text, 1: days, 2: weeks (in weeks & days format)
     let globalClickCount = 0;
     let showAll = false; // Toggle state for All/Future
 
@@ -81,31 +90,53 @@
       displayTravels();
     });
 
-    function daysUntil(date) {
-      const today = new Date();
-      const travelDate = new Date(date);
-      const timeDifference = travelDate - today;
-      const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // Calculate days remaining
-
-      let years = travelDate.getFullYear() - today.getFullYear();
-      let months = travelDate.getMonth() - today.getMonth();
-      let days = travelDate.getDate() - today.getDate();
-
+    // Helper function: returns difference between two dates (start <= end) in years, months, and days.
+    function dateDiff(start, end) {
+      let years = end.getFullYear() - start.getFullYear();
+      let months = end.getMonth() - start.getMonth();
+      let days = end.getDate() - start.getDate();
+      
       if (days < 0) {
         months--;
-        days += new Date(travelDate.getFullYear(), travelDate.getMonth(), 0).getDate();
+        // Get days in the previous month of 'end'
+        const prevMonthDays = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+        days += prevMonthDays;
       }
       if (months < 0) {
         years--;
         months += 12;
       }
+      return { years, months, days };
+    }
 
-      let result = '';
-      if (years) result += `${Math.abs(years)} ${years === 1 ? 'Year' : 'Years'} `;
-      if (months) result += `${Math.abs(months)} ${months === 1 ? 'Month' : 'Months'} `;
-      if (days) result += `${Math.abs(days)} ${days === 1 ? 'Day' : 'Days'} `;
+    // Helper function: formats the date difference into a friendly string
+    function formatDiff(diff) {
+      const parts = [];
+      if (diff.years) parts.push(diff.years + " " + (diff.years === 1 ? "Year" : "Years"));
+      if (diff.months) parts.push(diff.months + " " + (diff.months === 1 ? "Month" : "Months"));
+      if (diff.days) parts.push(diff.days + " " + (diff.days === 1 ? "Day" : "Days"));
+      // If all parts are zero, return "0 Days"
+      return parts.length ? parts.join(" ") : "0 Days";
+    }
 
-      return { fullText: result.trim(), daysRemaining };
+    function daysUntil(date) {
+      const today = new Date();
+      const travelDate = new Date(date);
+      let diff, fullText;
+      
+      if (travelDate < today) {
+        diff = dateDiff(travelDate, today);
+        fullText = formatDiff(diff) + " ago";
+      } else {
+        diff = dateDiff(today, travelDate);
+        fullText = formatDiff(diff);
+      }
+      
+      // Total absolute days difference
+      const rawDaysRemaining = Math.ceil(Math.abs(travelDate - today) / (1000 * 60 * 60 * 24));
+      const daysRemaining = rawDaysRemaining;
+      
+      return { fullText, daysRemaining };
     }
 
     function displayTravels() {
@@ -122,7 +153,7 @@
       card.className = 'card';
       const isPast = new Date(travel.date) < new Date();  // Check if the travel date is in the past
       if (isPast) {
-        card.classList.add('past');  // Add the 'past' class if the date is past
+        card.classList.add('past');
       }
 
       const { fullText, daysRemaining } = daysUntil(travel.date);
@@ -133,13 +164,13 @@
       if (globalClickCount % 3 === 0) {
         subtitle.textContent = fullText;
       } else if (globalClickCount % 3 === 1) {
-        subtitle.textContent = `${daysRemaining} Days`;
+        subtitle.textContent = `${daysRemaining} Days` + (isPast ? " ago" : "");
       } else if (globalClickCount % 3 === 2) {
-        const weeksRemaining = (daysRemaining / 7).toFixed(1);
-        subtitle.textContent = `${weeksRemaining} Weeks`;
+        const weeks = Math.floor(daysRemaining / 7);
+        const days = daysRemaining % 7;
+        subtitle.textContent = `${weeks} ${weeks === 1 ? 'Week' : 'Weeks'} ${days} ${days === 1 ? 'Day' : 'Days'}` + (isPast ? " ago" : "");
       }
 
-      // When any subtitle is clicked, update the global state and re-display all cards.
       subtitle.addEventListener('click', () => {
         globalClickCount = (globalClickCount + 1) % 3;
         displayTravels();
