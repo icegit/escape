@@ -1,55 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Travel Destinations</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <style>
     body { font-family: "Trebuchet MS", Helvetica, sans-serif; }
     .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; margin-top: 30px; }
-    .card {
-      margin: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: calc(100% / 3 - 40px); /* Three cards per row on desktop */
-    }
-    .card img { 
-      width: 100%; 
-      height: 200px; 
-      object-fit: cover; 
-      transition: filter 0.3s ease; 
-    }
-    /* Past events: images are grayscale */
+    .card { margin: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: calc(100% / 3 - 40px); }
+    .card img { width: 100%; height: 200px; object-fit: cover; transition: filter 0.3s ease; }
     .past img { filter: grayscale(100%); }
-    /* On hover, remove grayscale for past event images */
     .past img:hover { filter: none; }
     .card-content { padding: 15px; }
     .title { font-size: 24px; margin-bottom: 5px; }
     .subtitle { font-size: 18px; color: green; font-weight: 500; cursor: pointer; }
-    .sub-subtitle {
-      display: flex; 
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      margin: 30px 0 10px;
-      color: #AAA;
-    }
+    .sub-subtitle { display: flex; justify-content: space-between; align-items: center; width: 100%; margin: 30px 0 10px; color: #AAA; }
     .icon { margin-right: 10px; color: #AAA; }
     .past { color: gray; }
     .past .subtitle { color: gray !important; }
     @media (max-width: 800px) {
-      .container { padding: 0px; }
+      .container { padding: 0; }
       .card { width: calc(100% - 40px); margin: 50px 0; }
     }
     #toggleButton {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 10px 20px;
-      background-color: #eee;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
+      position: absolute; top: 10px; right: 10px;
+      padding: 10px 20px; background-color: #eee;
+      border: none; cursor: pointer; border-radius: 5px;
       color: #999;
     }
     #toggleButton.active { background-color: #f5f5f5; }
@@ -57,33 +34,35 @@
 </head>
 <body>
   <button id="toggleButton" class="active">All/Future</button>
-  
-  <div class="container">
-    <!-- Cards will be added here by JavaScript -->
-  </div>
+  <div class="container"></div>
 
   <script>
-    const travels = [
-      { city: "Greenland", date: "2015-01-30", distance: 3133, days: 5, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/c5/8c/51/isbjerge.jpg?w=500&h=200" },
-      { city: "Mexico Tour", date: "2022-01-16", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
-      { city: "Egypt Tour", date: "2024-10-26", distance: 3310, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/9b/2f/5b/cairo.jpg?w=500&h=200" },
-      { city: "Mediterranian Cruise", date: "2024-07-22", distance: 1660, days: 8, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/54/87/a8/caption.jpg?w=500&h=200" },
-      { city: "Persian Gulf Cruise", date: "2025-02-15", distance: 5170, days: 9, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/71/29/ca/caption.jpg?w=500&h=200" },
-      { city: "Antarctica Cruise", date: "2024-12-21", distance: 13950, days: 16, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/dc/45/43/mount-achala.jpg?w=500&h=200" },
-      { city: "Bordeaux", date: "2025-04-08", distance: 1085, days: 4, photo: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/481000/481844-Bordeaux.jpg" },
-      { city: "Milan", date: "2025-04-15", distance: 1078, days: 3, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/9e/ba/dc/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_13aff80bdcc5efb3e0bb" },
-      { city: "Bali", date: "2025-04-18", distance: 12110, days: 14, photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/b9/ed/e6/caption.jpg?w=1400&h=500&s=1" },
-      { city: "Canary Islands", date: "2025-05-28", distance: 3800, days: 5, photo: "https://www.webtenerife.co.uk/-/media/files/que-hacer/ocio/parques-de-ocio/siam-park-tenerife/ppalweb-siampark-2015.jpg" },
-      { city: "Great Wall Marathon", date: "2025-05-13", distance: 7817, days: 7, photo: "https://great-wall-marathon.com/sites/default/files/images/China_GreatWallMarathon_2018_0142_AT.jpg" }
-      { city: "Senegal & Gambia", date: "2026-02-28", distance: 4544, days: 9, photo: "https://icegit.github.io/escape/img/sengam.jpg" }
-    ];
+    // 1) Base URL for your own images
+    const BASE_IMG_URL = "https://icegit.github.io/escape/img/";
 
+    // Data: only filenames for images under BASE_IMG_URL
+    const travels = [
+	
+      { city: "Greenland",				date: "2015-01-30", 	distance: 3133,		days: 5,  	photo: "isbjerge.jpg" },
+      { city: "Mexico Tour",			date: "2022-01-16", 	distance: 3310, 	days: 9,  	photo: "yucatan.jpg" },
+      { city: "Egypt Tour",				date: "2024-10-26", 	distance: 3310, 	days: 9,  	photo: "cairo.jpg" },
+      { city: "Mediterranian Cruise",	date: "2024-07-22", 	distance: 1660, 	days: 8,  	photo: "mediterranian.jpg" },
+      { city: "Persian Gulf Cruise",	date: "2025-02-15", 	distance: 5170, 	days: 9,  	photo: "persiangulf.jpg" },
+      { city: "Antarctica Cruise",		date: "2024-12-21", 	distance: 13950, 	days: 16, 	photo: "antarctica.jpg" },
+      { city: "Bordeaux",				date: "2025-04-08", 	distance: 1085, 	days: 4,  	photo: "bordeaux.jpg" },
+      { city: "Milan",					date: "2025-04-15", 	distance: 1078, 	days: 3,  	photo: "milan.jpg" },
+      { city: "Bali",					date: "2025-04-18", 	distance: 12110,  	days: 14,	photo: "bali.jpg" },
+      { city: "Canary Islands",			date: "2025-05-28", 	distance: 3800,   	days: 5,	photo: "siam.jpg" },
+      { city: "Great Wall Marathon",	date: "2025-05-13", 	distance: 7817,   	days: 7,	photo: "greatwall.jpg" },
+	  { city: "Ankara",  				date: "2025-07-11",		distance: 3121,		days: 9,	photo: "ankara.jpg" },
+      { city: "Senegal & Gambia",		date: "2026-02-28",		distance: 4544,		days: 9,	photo: "sengam.jpg" }
+	  
+    ];
+	
     travels.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    // Global toggle for display format:
-    // 0: full text, 1: days, 2: weeks (in weeks & days format)
     let globalClickCount = 0;
-    let showAll = false; // Toggle state for All/Future
+    let showAll = false;
 
     document.getElementById('toggleButton').addEventListener('click', () => {
       showAll = !showAll;
@@ -91,15 +70,14 @@
       displayTravels();
     });
 
-    // Helper function: returns difference between two dates (start <= end) in years, months, and days.
+    // --- date difference helpers ---
     function dateDiff(start, end) {
-      let years = end.getFullYear() - start.getFullYear();
-      let months = end.getMonth() - start.getMonth();
-      let days = end.getDate() - start.getDate();
-      
+      let years  = end.getFullYear()  - start.getFullYear();
+      let months = end.getMonth()     - start.getMonth();
+      let days   = end.getDate()      - start.getDate();
+
       if (days < 0) {
         months--;
-        // Get days in the previous month of 'end'
         const prevMonthDays = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
         days += prevMonthDays;
       }
@@ -110,94 +88,113 @@
       return { years, months, days };
     }
 
-    // Helper function: formats the date difference into a friendly string
     function formatDiff(diff) {
       const parts = [];
-      if (diff.years) parts.push(diff.years + " " + (diff.years === 1 ? "Year" : "Years"));
-      if (diff.months) parts.push(diff.months + " " + (diff.months === 1 ? "Month" : "Months"));
-      if (diff.days) parts.push(diff.days + " " + (diff.days === 1 ? "Day" : "Days"));
-      // If all parts are zero, return "0 Days"
+      if (diff.years)  parts.push(diff.years  + (diff.years  === 1 ? " Year"  : " Years"));
+      if (diff.months) parts.push(diff.months + (diff.months === 1 ? " Month" : " Months"));
+      if (diff.days)   parts.push(diff.days   + (diff.days   === 1 ? " Day"   : " Days"));
       return parts.length ? parts.join(" ") : "0 Days";
     }
 
-    function daysUntil(date) {
-      const today = new Date();
-      const travelDate = new Date(date);
+    function daysUntil(dateStr) {
+      const today      = new Date();
+      const travelDate = new Date(dateStr);
       let diff, fullText;
-      
+
       if (travelDate < today) {
-        diff = dateDiff(travelDate, today);
+        diff     = dateDiff(travelDate, today);
         fullText = formatDiff(diff) + " ago";
       } else {
-        diff = dateDiff(today, travelDate);
+        diff     = dateDiff(today, travelDate);
         fullText = formatDiff(diff);
       }
-      
-      // Total absolute days difference
-      const rawDaysRemaining = Math.ceil(Math.abs(travelDate - today) / (1000 * 60 * 60 * 24));
-      const daysRemaining = rawDaysRemaining;
-      
+      const daysRemaining = Math.ceil(Math.abs(travelDate - today) / (1000 * 60 * 60 * 24));
       return { fullText, daysRemaining };
+    }
+
+    // strip time → midnight
+    function dateOnly(d) {
+      return new Date(d.getFullYear(), d.getMonth(), d.getDate());
     }
 
     function displayTravels() {
       const container = document.querySelector('.container');
-      container.innerHTML = ''; // Clear existing cards
-      const today = new Date();
+      container.innerHTML = "";
+      const todayMid = dateOnly(new Date());
 
-      travels.filter(travel => showAll || new Date(travel.date) > today)
-             .forEach(travel => container.appendChild(createCard(travel)));
+      travels
+        .filter(t => {
+          const td = dateOnly(new Date(t.date));
+          return showAll || td.getTime() >= todayMid.getTime();
+        })
+        .forEach(t => container.appendChild(createCard(t)));
     }
 
     function createCard(travel) {
+      const travelMid = dateOnly(new Date(travel.date));
+      const todayMid  = dateOnly(new Date());
+      const isPast    = travelMid.getTime() < todayMid.getTime();
+      const isToday   = travelMid.getTime() === todayMid.getTime();
+
+      // build card
       const card = document.createElement('div');
       card.className = 'card';
-      const isPast = new Date(travel.date) < new Date();  // Check if the travel date is in the past
-      if (isPast) {
-        card.classList.add('past');
-      }
+      if (isPast) card.classList.add('past');
 
+      // subtitle logic
       const { fullText, daysRemaining } = daysUntil(travel.date);
       const subtitle = document.createElement('p');
       subtitle.className = 'subtitle';
 
-      // Set subtitle text based on the global toggle
-      if (globalClickCount % 3 === 0) {
-        subtitle.textContent = fullText;
-      } else if (globalClickCount % 3 === 1) {
-        subtitle.textContent = `${daysRemaining} Days` + (isPast ? " ago" : "");
-      } else if (globalClickCount % 3 === 2) {
-        const weeks = Math.floor(daysRemaining / 7);
-        const days = daysRemaining % 7;
-        subtitle.textContent = `${weeks} ${weeks === 1 ? 'Week' : 'Weeks'} ${days} ${days === 1 ? 'Day' : 'Days'}` + (isPast ? " ago" : "");
+      if (isToday) {
+        subtitle.textContent = "Today";
+      } else {
+        if      (globalClickCount % 3 === 0) subtitle.textContent = fullText;
+        else if (globalClickCount % 3 === 1) subtitle.textContent = 
+             `${daysRemaining} Days` + (isPast ? " ago" : "");
+        else {
+          const w = Math.floor(daysRemaining / 7),
+                d = daysRemaining % 7;
+          subtitle.textContent = 
+            `${w} ${w===1?"Week":"Weeks"} ${d} ${d===1?"Day":"Days"}` 
+            + (isPast ? " ago" : "");
+        }
       }
-
       subtitle.addEventListener('click', () => {
         globalClickCount = (globalClickCount + 1) % 3;
         displayTravels();
       });
 
+      // choose src
+      const imgSrc = travel.photo.startsWith('http')
+                   ? travel.photo
+                   : BASE_IMG_URL + travel.photo;
+
       card.innerHTML = `
-        <img src="${travel.photo}" alt="${travel.city}">
+        <img src="${imgSrc}" alt="${travel.city}">
         <div class="card-content">
           <h2 class="title">${travel.city}</h2>
         </div>
       `;
       card.querySelector('.card-content').appendChild(subtitle);
 
-      const subSubtitle = document.createElement('div');
-      subSubtitle.className = 'sub-subtitle';
-      subSubtitle.innerHTML = `
-        <span><i class="fas fa-calendar-day icon"></i>${new Date(travel.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+      // footer row
+      const sub = document.createElement('div');
+      sub.className = 'sub-subtitle';
+      sub.innerHTML = `
+        <span><i class="fas fa-calendar-day icon"></i>
+          ${travelMid.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}
+        </span>
         <span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
         <span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
       `;
-      card.querySelector('.card-content').appendChild(subSubtitle);
+      card.querySelector('.card-content').appendChild(sub);
 
       return card;
     }
 
-    displayTravels(); // Initial display of travels
+    // initial render
+    displayTravels();
   </script>
 </body>
 </html>
