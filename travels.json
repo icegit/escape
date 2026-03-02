@@ -7,7 +7,7 @@
     "photo": "sofia.webp",
     "stays": [
       {
-        "hotel": null,
+        "hotel": "Rent-BG Apartments",
         "address": "Dondukov blvd No 1, Sofia, Bulgaria",
         "latitude": 42.6983309,
         "longitude": 23.3241564,
