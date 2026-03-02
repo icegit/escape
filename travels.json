@@ -1,5 +1,30 @@
 [
   {
+    "city": "Sofia + 1 more",
+    "date": "2003-07-25",
+    "distance": 1743,
+    "days": 5,
+    "photo": "sofia.webp",
+    "stays": [
+      {
+        "hotel": null,
+        "address": "Dondukov blvd No 1, Sofia, Bulgaria",
+        "latitude": 42.6983309,
+        "longitude": 23.3241564,
+        "checkIn": "2003-07-25",
+        "checkOut": "2003-07-28"
+      },
+      {
+        "hotel": null,
+        "address": "Nessebar, Bulgaria",
+        "latitude": 42.6607865,
+        "longitude": 27.7167464,
+        "checkIn": "2003-07-28",
+        "checkOut": "2003-07-30"
+      }
+    ]
+  },
+  {
     "city": "Greenland",
     "date": "2015-01-30",
     "distance": 3421,
