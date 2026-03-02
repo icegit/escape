@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="g3" x1="0" x2="1">
+      <stop offset="0" stop-color="#89f7fe"/>
+      <stop offset="1" stop-color="#66a6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g3)"/>
+  <g fill="#033" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="50%" y="50%" font-size="72" text-anchor="middle">Cape Verde</text>
+    <text x="50%" y="62%" font-size="36" text-anchor="middle">West Africa — Feb 21, 2026</text>
+  </g>
+</svg>
