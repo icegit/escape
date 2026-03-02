@@ -1,0 +1,142 @@
+[
+  {
+    "city": "Greenland",
+    "date": "2015-01-30",
+    "distance": 3421,
+    "days": 5,
+    "photo": "greenland.jpg"
+  },
+  {
+    "city": "Mexico Tour",
+    "date": "2022-01-16",
+    "distance": 8276,
+    "days": 9,
+    "photo": "mexico.jpg"
+  },
+  {
+    "city": "Egypt Tour",
+    "date": "2024-10-26",
+    "distance": 3282,
+    "days": 9,
+    "photo": "cairo.jpg"
+  },
+  {
+    "city": "Mediterranian Cruise",
+    "date": "2024-07-22",
+    "distance": 1238,
+    "days": 8,
+    "photo": "mediterranean.jpg"
+  },
+  {
+    "city": "Persian Gulf Cruise",
+    "date": "2025-02-15",
+    "distance": 5159,
+    "days": 9,
+    "photo": "dubai.jpg"
+  },
+  {
+    "city": "Antarctica Cruise",
+    "date": "2024-12-21",
+    "distance": 13683,
+    "days": 16,
+    "photo": "antarctica.jpg"
+  },
+  {
+    "city": "Bordeaux",
+    "date": "2025-04-08",
+    "distance": 929,
+    "days": 4,
+    "photo": "bordeaux.jpg"
+  },
+  {
+    "city": "Milan",
+    "date": "2025-04-15",
+    "distance": 829,
+    "days": 3,
+    "photo": "milan.jpg"
+  },
+  {
+    "city": "Bali",
+    "date": "2025-04-18",
+    "distance": 12141,
+    "days": 14,
+    "photo": "bali.jpg"
+  },
+  {
+    "city": "Canary Islands",
+    "date": "2025-05-28",
+    "distance": 3179,
+    "days": 5,
+    "photo": "tenerife.jpg"
+  },
+  {
+    "city": "Great Wall Marathon",
+    "date": "2025-05-13",
+    "distance": 7784,
+    "days": 7,
+    "photo": "beijing.jpg"
+  },
+  {
+    "city": "Ankara",
+    "date": "2025-07-11",
+    "distance": 2534,
+    "days": 9,
+    "photo": "ankara.jpg"
+  },
+  {
+    "city": "Svalbard",
+    "date": "2025-08-02",
+    "distance": 2907,
+    "days": 5,
+    "photo": "svalbard.jpg"
+  },
+  {
+    "city": "UK & Ireland",
+    "date": "2025-10-17",
+    "distance": 757,
+    "days": 4,
+    "photo": "oxbridge.jpg"
+  },
+  {
+    "city": "Cyprus Challenge",
+    "date": "2025-11-25",
+    "distance": 2984,
+    "days": 8,
+    "photo": "larnaca.jpg"
+  },
+  {
+    "city": "East Asia Cruise",
+    "date": "2025-12-22",
+    "distance": 9174,
+    "days": 16,
+    "photo": "bangkok.avif"
+  },
+  {
+    "city": "Cape Verde",
+    "date": "2026-02-21",
+    "distance": 4859,
+    "days": 9,
+    "photo": "capeverde.jpg"
+  },
+  {
+    "city": "Paris",
+    "date": "2026-03-10",
+    "distance": 430,
+    "days": 3,
+    "photo": "paris.jpg"
+  },
+  {
+    "city": "Hamburg",
+    "date": "2026-03-23",
+    "distance": 365,
+    "days": 3,
+    "photo": "hamburg.jpg"
+  },
+  {
+    "city": "Japan Tour",
+    "date": "2026-04-18",
+    "distance": 9288,
+    "days": 16,
+    "photo": "tokyo.jpg"
+  }
+]
