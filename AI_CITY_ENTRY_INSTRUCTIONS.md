@@ -1,46 +1,45 @@
-# AI Instructions: Add a New Destination
+# AI Instructions: Add or Update Trips
 
-Use this process whenever adding a new destination to `travels.json`.
+Use this process whenever adding trips to `travels.json`.
 
-## Required JSON format
+## Required JSON shape
 
-Each item must contain exactly these 5 keys, in this order:
+Each trip must include these keys:
 
 ```json
 {
-  "city": "Mexico Tour",
-  "date": "2022-01-16",
-  "distance": 3310,
-  "days": 9,
-  "photo": "yucatan.jpg"
-},
+  "city": "Prague",
+  "date": "2023-05-18",
+  "distance": 709,
+  "days": 2,
+  "photo": "https://upload.wikimedia.org/...jpg",
+  "hotel": "Hilton Prague Atrium",
+  "address": "Pobřežní 1, Prague, Czech Republic",
+  "latitude": 50.093347,
+  "longitude": 14.439665,
+  "checkIn": "2023-05-18",
+  "checkOut": "2023-05-20"
+}
 ```
 
 Rules:
 - Keep `travels.json` as a JSON array.
-- No extra keys (no hotel, address, phone, etc.).
-- `date` format: `YYYY-MM-DD`.
-- `distance`: integer kilometers from Amsterdam.
-- `photo`: lowercase one-word filename where possible, e.g. `paris.jpg`, `hamburg.jpg`.
+- `date`, `checkIn`, `checkOut` format: `YYYY-MM-DD`.
+- `days` must equal date difference: `checkOut - checkIn`.
+- `distance` is approximate km from Amsterdam (`52.3676, 4.9041`) to trip coordinates.
+- For unknown hotel details on non-hotel tours, `hotel` may be `null`.
 
-## Distance rule (Amsterdam baseline)
+## Data sourcing rules
 
-Calculate approximate great-circle distance from Amsterdam (`52.3676, 4.9041`) to the destination anchor:
-- If `city` is a city name, use that city center.
-- If it is a tour/cruise, use a clear primary anchor city (example: `Mexico Tour` -> Cancun).
-- Round to nearest kilometer.
-
-## Photo rule
-
-- Save the image in `img/`.
-- Prefer attractive landscape photos.
-- Use one-word, lowercase filename where possible.
-- Update `photo` in `travels.json` to match the file name.
+- Prefer completed bookings; skip canceled bookings unless explicitly requested.
+- Address and coordinates should come from hotel location where possible.
+- If hotel lookup fails, use city-level fallback and mark it as uncertain in the change note.
+- Use attractive city photo URLs (or local files in `img/`).
 
 ## Validation checklist
 
 1. JSON is valid.
-2. Every item has only `city`, `date`, `distance`, `days`, `photo`.
-3. Distance is an Amsterdam-based approximation.
-4. Photo file exists in `img/`.
-5. Page renders correctly in `index.html`.
+2. All trips include required keys.
+3. `distance` values are Amsterdam-based approximations.
+4. `checkOut` is after `checkIn` and `days` is consistent.
+5. Trips are sorted by `date` ascending.
