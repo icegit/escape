@@ -98,165 +98,9 @@
 
     <script>
       // 1) Base URL for your own images
-      const BASE_IMG_URL = "https://icegit.github.io/escape/img/";
-
-      // Data: only filenames for images under BASE_IMG_URL
-      const travels = [
-        {
-          city: "Greenland",
-          date: "2015-01-30",
-          distance: 3133,
-          days: 5,
-          photo: "isbjerge.jpg",
-        },
-        {
-          city: "Mexico Tour",
-          date: "2022-01-16",
-          distance: 3310,
-          days: 9,
-          photo: "yucatan.jpg",
-        },
-        {
-          city: "Egypt Tour",
-          date: "2024-10-26",
-          distance: 3310,
-          days: 9,
-          photo: "cairo.jpg",
-        },
-        {
-          city: "Mediterranian Cruise",
-          date: "2024-07-22",
-          distance: 1660,
-          days: 8,
-          photo: "mediterranian.jpg",
-        },
-        {
-          city: "Persian Gulf Cruise",
-          date: "2025-02-15",
-          distance: 5170,
-          days: 9,
-          photo: "persiangulf.jpg",
-        },
-        {
-          city: "Antarctica Cruise",
-          date: "2024-12-21",
-          distance: 13950,
-          days: 16,
-          photo: "antarctica.jpg",
-        },
-        {
-          city: "Bordeaux",
-          date: "2025-04-08",
-          distance: 1085,
-          days: 4,
-          photo: "bordeaux.jpg",
-        },
-        {
-          city: "Milan",
-          date: "2025-04-15",
-          distance: 1078,
-          days: 3,
-          photo: "milan.jpg",
-        },
-        {
-          city: "Bali",
-          date: "2025-04-18",
-          distance: 12110,
-          days: 14,
-          photo: "bali.jpg",
-        },
-        {
-          city: "Canary Islands",
-          date: "2025-05-28",
-          distance: 3800,
-          days: 5,
-          photo: "siam.jpg",
-        },
-        {
-          city: "Great Wall Marathon",
-          date: "2025-05-13",
-          distance: 7817,
-          days: 7,
-          photo: "greatwall.jpg",
-        },
-        {
-          city: "Ankara",
-          date: "2025-07-11",
-          distance: 3121,
-          days: 9,
-          photo: "ankara.jpg",
-        },
-        {
-          city: "Svalbard",
-          date: "2025-08-02",
-          distance: 2923,
-          days: 5,
-          photo: "svalbard.jpg",
-        },
-        {
-          city: "UK & Ireland",
-          date: "2025-10-17",
-          distance: 756,
-          days: 4,
-          photo: "oxbridge.jpg",
-        },
-        {
-          city: "Cyprus Challenge",
-          date: "2025-11-25",
-          distance: 2994,
-          days: 8,
-          photo: "larnaca.jpg",
-        },
-        {
-          city: "East Asia Cruise",
-          date: "2025-12-22",
-          distance: 9438,
-          days: 16,
-          photo: "vietthai.avif",
-        },
-        {
-          city: "Cape Verde",
-          date: "2026-02-21",
-          distance: 4544,
-          days: 9,
-          photo: "capeverde.jpg",
-        },
-        {
-          city: "Hilton Paris La Defense",
-          date: "2026-03-10",
-          distance: 1030,
-          days: 3,
-          photo: "paris-ladefense.jpg",
-          hotel: "Hilton Paris La Defense",
-          address: "Puteaux",
-          phone: "+33 1 46 92 10 10",
-          checkIn: "2026-03-10T14:00",
-          checkOut: "2026-03-13T12:00",
-          confirmationNumber: "3423022454",
-        },
-        {
-          city: "Holiday Inn Hamburg - HafenCity",
-          date: "2026-03-23",
-          distance: 290,
-          days: 3,
-          photo: "hamburg-hafencity.jpg",
-          hotel: "Holiday Inn Hamburg - HafenCity",
-          address: "Ueberseeallee 15, Hamburg, 20457 Germany",
-          phone: "+1 494032503850",
-          checkIn: "2026-03-23T15:00",
-          checkOut: "2026-03-26T12:00",
-          confirmationNumber: "65022294",
-        },
-        {
-          city: "Japan Tour",
-          date: "2026-04-18",
-          distance: 13077,
-          days: 16,
-          photo: "japan.jpg",
-        },
-      ];
-
-      travels.sort((a, b) => new Date(a.date) - new Date(b.date));
+      const BASE_IMG_URL = "./img/";
+      // Data lives in travels.json (same folder as this file)
+      let travels = [];
 
       let globalClickCount = 0;
       let showAll = false;
@@ -399,9 +243,24 @@
 
         return card;
       }
+      async function loadTravels() {
+        try {
+          const response = await fetch("./travels.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load travels.json (${response.status})`);
+          }
+          travels = await response.json();
+          travels.sort((a, b) => new Date(a.date) - new Date(b.date));
+          displayTravels();
+        } catch (error) {
+          console.error(error);
+          document.querySelector(".container").innerHTML =
+            '<p style="padding: 20px; color: #b00020;">Could not load travel data.</p>';
+        }
+      }
 
       // initial render
-      displayTravels();
+      loadTravels();
     </script>
   </body>
 </html>
