@@ -852,8 +852,8 @@
     "photo": "paris.webp",
     "stays": [
       {
-        "hotel": null,
-        "address": "Paris, Île-de-France, France métropolitaine, France",
+        "hotel": "Hilton Paris La Defense",
+        "address": "2 Pl. de la Défense, 92800 Puteaux, France",
         "latitude": 48.85889,
         "longitude": 2.320041,
         "checkIn": "2026-03-10",
@@ -869,8 +869,8 @@
     "photo": "hamburg.webp",
     "stays": [
       {
-        "hotel": null,
-        "address": "Hamburg, Deutschland",
+        "hotel": "Holiday Inn Hamburg - HafenCity",
+        "address": "Überseeallee 15, 20457 Hamburg, Germany",
         "latitude": 53.550341,
         "longitude": 10.000654,
         "checkIn": "2026-03-23",
