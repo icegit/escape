@@ -894,5 +894,54 @@
         "checkOut": "2026-05-04"
       }
     ]
+  },
+  {
+    "city": "Jordan",
+    "date": "2026-10-10",
+    "distance": 3373,
+    "days": 8,
+    "photo": "jordantour.webp",
+    "stays": [
+      {
+        "hotel": null,
+        "address": "Amman, Jordan",
+        "latitude": 31.9515694,
+        "longitude": 35.9239625,
+        "checkIn": "2026-10-10",
+        "checkOut": "2026-10-12"
+      },
+      {
+        "hotel": null,
+        "address": "Dead Sea, Jordan",
+        "latitude": 31.6406337,
+        "longitude": 35.5746844,
+        "checkIn": "2026-10-12",
+        "checkOut": "2026-10-13"
+      },
+      {
+        "hotel": null,
+        "address": "Wadi Musa, Jordan",
+        "latitude": 30.3216568,
+        "longitude": 35.4800889,
+        "checkIn": "2026-10-13",
+        "checkOut": "2026-10-15"
+      },
+      {
+        "hotel": null,
+        "address": "Wadi Rum, Jordan",
+        "latitude": 29.5084443,
+        "longitude": 35.3362154,
+        "checkIn": "2026-10-15",
+        "checkOut": "2026-10-16"
+      },
+      {
+        "hotel": null,
+        "address": "Aqaba, Jordan",
+        "latitude": 29.5266483,
+        "longitude": 35.0075433,
+        "checkIn": "2026-10-16",
+        "checkOut": "2026-10-18"
+      }
+    ]
   }
 ]
