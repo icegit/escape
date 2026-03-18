@@ -879,19 +879,59 @@
     ]
   },
   {
-    "city": "Japan Tour",
+    "city": "Japan",
     "date": "2026-04-18",
     "distance": 9288,
-    "days": 16,
+    "days": 15,
     "photo": "japantour.webp",
     "stays": [
       {
         "hotel": null,
         "address": "Tokyo, Japan",
-        "latitude": 35.6762,
-        "longitude": 139.6503,
+        "latitude": 35.6768601,
+        "longitude": 139.7638947,
         "checkIn": "2026-04-18",
-        "checkOut": "2026-05-04"
+        "checkOut": "2026-04-23"
+      },
+      {
+        "hotel": null,
+        "address": "Hakone, Japan",
+        "latitude": 35.2323662,
+        "longitude": 139.1068849,
+        "checkIn": "2026-04-23",
+        "checkOut": "2026-04-24"
+      },
+      {
+        "hotel": null,
+        "address": "Takayama, Gifu, Japan",
+        "latitude": 36.141126,
+        "longitude": 137.2512848,
+        "checkIn": "2026-04-24",
+        "checkOut": "2026-04-26"
+      },
+      {
+        "hotel": null,
+        "address": "Kyoto, Japan",
+        "latitude": 35.0115754,
+        "longitude": 135.7681441,
+        "checkIn": "2026-04-26",
+        "checkOut": "2026-04-30"
+      },
+      {
+        "hotel": null,
+        "address": "Hiroshima, Japan",
+        "latitude": 34.3917241,
+        "longitude": 132.4517589,
+        "checkIn": "2026-04-30",
+        "checkOut": "2026-05-01"
+      },
+      {
+        "hotel": null,
+        "address": "Osaka, Japan",
+        "latitude": 34.6937569,
+        "longitude": 135.5014539,
+        "checkIn": "2026-05-01",
+        "checkOut": "2026-05-03"
       }
     ]
   },
