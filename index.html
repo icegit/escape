@@ -45,6 +45,19 @@
         font-size: 24px;
         margin-bottom: 5px;
       }
+      .title-button {
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .title-button:hover,
+      .title-button:focus-visible {
+        text-decoration: underline;
+      }
       .subtitle {
         font-size: 18px;
         color: green;
@@ -94,17 +107,242 @@
       #toggleButton.active {
         background-color: #f5f5f5;
       }
+      .trip-modal[hidden] {
+        display: none;
+      }
+      .trip-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+      }
+      .trip-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.72);
+      }
+      .trip-modal-panel {
+        position: relative;
+        z-index: 1;
+        width: min(920px, calc(100vw - 32px));
+        max-height: calc(100vh - 32px);
+        margin: 16px auto;
+        overflow: auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 18px 48px rgba(15, 23, 42, 0.25);
+      }
+      .trip-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .trip-modal-hero {
+        position: relative;
+      }
+      .trip-modal-hero img {
+        width: 100%;
+        height: min(320px, 38vh);
+        object-fit: cover;
+        display: block;
+      }
+      .trip-modal-hero-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 28px 24px 20px;
+        color: #fff;
+        background: linear-gradient(
+          180deg,
+          rgba(15, 23, 42, 0) 0%,
+          rgba(15, 23, 42, 0.82) 100%
+        );
+      }
+      .trip-modal-hero-content h3 {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 4vw, 40px);
+      }
+      .trip-modal-hero-content p {
+        margin: 0;
+        font-size: 16px;
+      }
+      .trip-modal-body {
+        padding: 24px;
+      }
+      .trip-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .trip-summary-item {
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: #f7f7f5;
+      }
+      .trip-summary-label {
+        display: block;
+        margin-bottom: 8px;
+        color: #667085;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .trip-summary-value {
+        display: block;
+        color: #101828;
+        font-size: 18px;
+      }
+      .trip-section-title {
+        margin: 0 0 16px;
+        font-size: 20px;
+      }
+      .trip-stay-list {
+        display: grid;
+        gap: 16px;
+      }
+      .trip-stay-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 14px;
+        align-items: start;
+        padding: 18px;
+        border: 1px solid #eaecf0;
+        border-radius: 16px;
+        background: #fff;
+      }
+      .trip-stay-index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        background: #20354c;
+        color: #fff;
+        font-weight: 700;
+      }
+      .trip-stay-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .trip-stay-header h4 {
+        margin: 0;
+        font-size: 19px;
+      }
+      .trip-stay-date {
+        color: #475467;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .trip-stay-address,
+      .trip-stay-coordinates {
+        margin: 0;
+        color: #475467;
+        line-height: 1.5;
+      }
+      .trip-stay-hotel {
+        margin: 0 0 6px;
+        color: #101828;
+        font-weight: 600;
+      }
+      .trip-stay-links {
+        margin-top: 12px;
+      }
+      .trip-stay-links a {
+        color: #0b63ce;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .trip-stay-links a:hover,
+      .trip-stay-links a:focus-visible {
+        text-decoration: underline;
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+      @media (max-width: 800px) {
+        .trip-summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .trip-stay-header {
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 560px) {
+        .trip-modal-panel {
+          width: calc(100vw - 16px);
+          max-height: calc(100vh - 16px);
+          margin: 8px auto;
+          border-radius: 16px;
+        }
+        .trip-modal-body {
+          padding: 18px;
+        }
+        .trip-summary-grid {
+          grid-template-columns: 1fr;
+        }
+        .trip-stay-card {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
     <button id="toggleButton" class="active">All/Future</button>
     <div class="container"></div>
+    <div id="tripDetailsModal" class="trip-modal" hidden>
+      <div class="trip-modal-backdrop" data-close-modal="true"></div>
+      <section
+        class="trip-modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tripDetailsTitle"
+      >
+        <button
+          id="tripDetailsClose"
+          class="trip-modal-close"
+          type="button"
+          aria-label="Close trip details"
+        >
+          x
+        </button>
+        <div class="trip-modal-hero">
+          <img id="tripDetailsImage" src="" alt="" />
+          <div class="trip-modal-hero-content">
+            <h3 id="tripDetailsTitle"></h3>
+            <p id="tripDetailsMeta"></p>
+          </div>
+        </div>
+        <div class="trip-modal-body">
+          <div id="tripDetailsSummary" class="trip-summary-grid"></div>
+          <h4 class="trip-section-title">Itinerary</h4>
+          <div id="tripDetailsStays" class="trip-stay-list"></div>
+        </div>
+      </section>
+    </div>
 
     <script>
       // 1) Base URL for your own images
       const BASE_IMG_URL = "./img/";
       // Data lives in travels.json (same folder as this file)
       let travels = [];
+      const tripModal = document.getElementById("tripDetailsModal");
+      const tripDetailsImage = document.getElementById("tripDetailsImage");
+      const tripDetailsTitle = document.getElementById("tripDetailsTitle");
+      const tripDetailsMeta = document.getElementById("tripDetailsMeta");
+      const tripDetailsSummary = document.getElementById("tripDetailsSummary");
+      const tripDetailsStays = document.getElementById("tripDetailsStays");
+      const tripDetailsClose = document.getElementById("tripDetailsClose");
 
       let globalClickCount = 0;
       let showAll = false;
@@ -171,6 +409,148 @@
         return new Date(d.getFullYear(), d.getMonth(), d.getDate());
       }
 
+      function getImageSrc(travel) {
+        return travel.photo.startsWith("http")
+          ? travel.photo
+          : BASE_IMG_URL + travel.photo;
+      }
+
+      function formatDisplayDate(dateStr, options = {}) {
+        return new Date(dateStr).toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          ...options,
+        });
+      }
+
+      function getTripEndDate(travel) {
+        return travel.stays.reduce(
+          (latest, stay) => (stay.checkOut > latest ? stay.checkOut : latest),
+          travel.date,
+        );
+      }
+
+      function formatStayRange(stay) {
+        const start = formatDisplayDate(stay.checkIn);
+        const end = formatDisplayDate(stay.checkOut);
+        return `${start} - ${end}`;
+      }
+
+      function createSummaryItem(label, value) {
+        const item = document.createElement("div");
+        item.className = "trip-summary-item";
+
+        const labelEl = document.createElement("span");
+        labelEl.className = "trip-summary-label";
+        labelEl.textContent = label;
+
+        const valueEl = document.createElement("strong");
+        valueEl.className = "trip-summary-value";
+        valueEl.textContent = value;
+
+        item.append(labelEl, valueEl);
+        return item;
+      }
+
+      function createStayCard(stay, index) {
+        const card = document.createElement("article");
+        card.className = "trip-stay-card";
+
+        const indexEl = document.createElement("span");
+        indexEl.className = "trip-stay-index";
+        indexEl.textContent = String(index + 1);
+
+        const content = document.createElement("div");
+
+        const header = document.createElement("div");
+        header.className = "trip-stay-header";
+
+        const heading = document.createElement("h4");
+        heading.textContent = stay.hotel || stay.address.split(",")[0];
+
+        const dateEl = document.createElement("span");
+        dateEl.className = "trip-stay-date";
+        dateEl.textContent = formatStayRange(stay);
+
+        header.append(heading, dateEl);
+        content.appendChild(header);
+
+        if (stay.hotel) {
+          const hotel = document.createElement("p");
+          hotel.className = "trip-stay-hotel";
+          hotel.textContent = stay.hotel;
+          content.appendChild(hotel);
+        }
+
+        const address = document.createElement("p");
+        address.className = "trip-stay-address";
+        address.textContent = stay.address;
+        content.appendChild(address);
+
+        const coordinates = document.createElement("p");
+        coordinates.className = "trip-stay-coordinates";
+        coordinates.textContent = `${stay.latitude.toFixed(4)}, ${stay.longitude.toFixed(4)}`;
+        content.appendChild(coordinates);
+
+        const links = document.createElement("p");
+        links.className = "trip-stay-links";
+
+        const mapLink = document.createElement("a");
+        mapLink.href = `https://www.openstreetmap.org/?mlat=${stay.latitude}&mlon=${stay.longitude}#map=12/${stay.latitude}/${stay.longitude}`;
+        mapLink.target = "_blank";
+        mapLink.rel = "noreferrer";
+        mapLink.textContent = "Open on map";
+
+        links.appendChild(mapLink);
+        content.appendChild(links);
+
+        card.append(indexEl, content);
+        return card;
+      }
+
+      function openTripDetails(travel) {
+        const tripEndDate = getTripEndDate(travel);
+        tripDetailsImage.src = getImageSrc(travel);
+        tripDetailsImage.alt = travel.city;
+        tripDetailsTitle.textContent = travel.city;
+        tripDetailsMeta.textContent = `${formatDisplayDate(travel.date)} - ${formatDisplayDate(tripEndDate)}`;
+
+        tripDetailsSummary.innerHTML = "";
+        tripDetailsSummary.append(
+          createSummaryItem("Start", formatDisplayDate(travel.date)),
+          createSummaryItem("End", formatDisplayDate(tripEndDate)),
+          createSummaryItem("Duration", `${travel.days} Days`),
+          createSummaryItem("Stops", `${travel.stays.length}`),
+        );
+
+        tripDetailsStays.innerHTML = "";
+        travel.stays.forEach((stay, index) => {
+          tripDetailsStays.appendChild(createStayCard(stay, index));
+        });
+
+        tripModal.hidden = false;
+        document.body.classList.add("modal-open");
+        tripDetailsClose.focus();
+      }
+
+      function closeTripDetails() {
+        tripModal.hidden = true;
+        document.body.classList.remove("modal-open");
+      }
+
+      tripDetailsClose.addEventListener("click", closeTripDetails);
+      tripModal.addEventListener("click", (event) => {
+        if (event.target.dataset.closeModal === "true") {
+          closeTripDetails();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !tripModal.hidden) {
+          closeTripDetails();
+        }
+      });
+
       function displayTravels() {
         const container = document.querySelector(".container");
         container.innerHTML = "";
@@ -221,17 +601,25 @@
         });
 
         // choose src
-        const imgSrc = travel.photo.startsWith("http")
-          ? travel.photo
-          : BASE_IMG_URL + travel.photo;
+        const imgSrc = getImageSrc(travel);
 
         card.innerHTML = `
         <img src="${imgSrc}" alt="${travel.city}">
         <div class="card-content">
-          <h2 class="title">${travel.city}</h2>
         </div>
       `;
-        card.querySelector(".card-content").appendChild(subtitle);
+        const cardContent = card.querySelector(".card-content");
+
+        const titleButton = document.createElement("button");
+        titleButton.type = "button";
+        titleButton.className = "title title-button";
+        titleButton.textContent = travel.city;
+        titleButton.addEventListener("click", () => {
+          openTripDetails(travel);
+        });
+
+        cardContent.appendChild(titleButton);
+        cardContent.appendChild(subtitle);
 
         // footer row
         const sub = document.createElement("div");
@@ -243,7 +631,7 @@
         <span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
         <span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
       `;
-        card.querySelector(".card-content").appendChild(sub);
+        cardContent.appendChild(sub);
 
         return card;
       }
