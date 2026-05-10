@@ -882,7 +882,7 @@
     "city": "Silk Road",
     "date": "2026-04-18",
     "distance": 5760,
-    "days": 24,
+    "days": 14,
     "photo": "silkroad.webp",
     "stays": [
       {
@@ -931,7 +931,7 @@
         "latitude": 43.2631,
         "longitude": 76.9308,
         "checkIn": "2026-04-30",
-        "checkOut": "2026-05-12"
+        "checkOut": "2026-05-02"
       }
     ]
   },
