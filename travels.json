@@ -4,7 +4,7 @@
     "date": "2003-07-25",
     "distance": 1743,
     "days": 5,
-    "photo": "sofia.webp",
+    "photo": "sofia.jpg",
     "stays": [
       {
         "hotel": "Rent-BG Apartments",
@@ -29,7 +29,7 @@
     "date": "2003-09-23",
     "distance": 2239,
     "days": 3,
-    "photo": "istanbul2003.webp",
+    "photo": "istanbul2003.jpg",
     "stays": [
       {
         "hotel": null,
@@ -46,7 +46,7 @@
     "date": "2015-01-30",
     "distance": 3421,
     "days": 5,
-    "photo": "greenland.webp",
+    "photo": "greenland.jpg",
     "stays": [
       {
         "hotel": null,
@@ -63,7 +63,7 @@
     "date": "2016-12-29",
     "distance": 2239,
     "days": 1,
-    "photo": "istanbul.webp",
+    "photo": "istanbul.jpg",
     "stays": [
       {
         "hotel": "Airport Residence",
@@ -80,7 +80,7 @@
     "date": "2017-04-02",
     "distance": 6,
     "days": 5,
-    "photo": "amstelveen.webp",
+    "photo": "amstelveen.jpg",
     "stays": [
       {
         "hotel": "Cityden Zuidas",
@@ -97,7 +97,7 @@
     "date": "2017-05-17",
     "distance": 2209,
     "days": 1,
-    "photo": "istanbul.webp",
+    "photo": "istanbul.jpg",
     "stays": [
       {
         "hotel": "Radisson Blu Hotel, Istanbul Sisli",
@@ -114,7 +114,7 @@
     "date": "2017-08-19",
     "distance": 286,
     "days": 3,
-    "photo": "bouillon.webp",
+    "photo": "bouillon.jpg",
     "stays": [
       {
         "hotel": "Auberge de Jeunesse de Bouillon",
@@ -147,7 +147,7 @@
     "date": "2019-03-01",
     "distance": 177,
     "days": 2,
-    "photo": "bruges.webp",
+    "photo": "bruges.jpg",
     "stays": [
       {
         "hotel": "Green Park Hotel Brugge",
@@ -164,7 +164,7 @@
     "date": "2019-10-19",
     "distance": 829,
     "days": 4,
-    "photo": "milan.webp",
+    "photo": "milan.jpg",
     "stays": [
       {
         "hotel": "Guest House Minas",
@@ -205,7 +205,7 @@
     "date": "2019-12-23",
     "distance": 179,
     "days": 1,
-    "photo": "valkenburg.webp",
+    "photo": "valkenburg.jpg",
     "stays": [
       {
         "hotel": "Appartementen Valkenburg",
@@ -222,7 +222,7 @@
     "date": "2020-07-08",
     "distance": 2445,
     "days": 1,
-    "photo": "tigaki.webp",
+    "photo": "tigaki.jpg",
     "stays": [
       {
         "hotel": "Miros Hotel Apartments",
@@ -239,7 +239,7 @@
     "date": "2020-12-03",
     "distance": 2223,
     "days": 2,
-    "photo": "istanbul.webp",
+    "photo": "istanbul.jpg",
     "stays": [
       {
         "hotel": "Park Inn by Radisson Istanbul Atasehir",
@@ -256,7 +256,7 @@
     "date": "2022-01-16",
     "distance": 8276,
     "days": 9,
-    "photo": "mexicotour.webp",
+    "photo": "mexicotour.jpg",
     "stays": [
       {
         "hotel": null,
@@ -273,7 +273,7 @@
     "date": "2022-02-20",
     "distance": 495,
     "days": 5,
-    "photo": "gerardmer.webp",
+    "photo": "gerardmer.jpg",
     "stays": [
       {
         "hotel": "Chalet de Martimprey",
@@ -290,7 +290,7 @@
     "date": "2022-04-23",
     "distance": 2014,
     "days": 7,
-    "photo": "vik.webp",
+    "photo": "vik.jpg",
     "stays": [
       {
         "hotel": "The Barn",
@@ -331,7 +331,7 @@
     "date": "2022-10-26",
     "distance": 5162,
     "days": 9,
-    "photo": "dubai.webp",
+    "photo": "dubai.jpg",
     "stays": [
       {
         "hotel": "Signature 1 Hotel Tecom",
@@ -348,7 +348,7 @@
     "date": "2023-04-06",
     "distance": 1093,
     "days": 4,
-    "photo": "warsaw.webp",
+    "photo": "warsaw.jpg",
     "stays": [
       {
         "hotel": "Novotel Warszawa Centrum",
@@ -373,7 +373,7 @@
     "date": "2023-04-24",
     "distance": 365,
     "days": 1,
-    "photo": "hamburg.webp",
+    "photo": "hamburg.jpg",
     "stays": [
       {
         "hotel": "PIERDREI Hotel HafenCity Hamburg",
@@ -390,7 +390,7 @@
     "date": "2023-05-03",
     "distance": 5162,
     "days": 9,
-    "photo": "dubai.webp",
+    "photo": "dubai.jpg",
     "stays": [
       {
         "hotel": "Stella Di Mare Dubai Marina Hotel",
@@ -431,7 +431,7 @@
     "date": "2023-05-18",
     "distance": 710,
     "days": 7,
-    "photo": "prague.webp",
+    "photo": "prague.jpg",
     "stays": [
       {
         "hotel": "Hilton Prague Atrium",
@@ -464,7 +464,7 @@
     "date": "2023-08-11",
     "distance": 2482,
     "days": 1,
-    "photo": "kizilcahamam.webp",
+    "photo": "kizilcahamam.jpg",
     "stays": [
       {
         "hotel": "Cam Thermal Resort Hotel & Spa",
@@ -481,7 +481,7 @@
     "date": "2023-09-26",
     "distance": 2476,
     "days": 4,
-    "photo": "heraklion.webp",
+    "photo": "heraklion.jpg",
     "stays": [
       {
         "hotel": "The Blossom Loft City Center Getaway Studio",
@@ -498,7 +498,7 @@
     "date": "2023-12-24",
     "distance": 1120,
     "days": 12,
-    "photo": "klaipeda.webp",
+    "photo": "klaipeda.jpg",
     "stays": [
       {
         "hotel": "VICTORIA Hotel Klaipeda",
@@ -587,7 +587,7 @@
     "date": "2024-05-03",
     "distance": 220,
     "days": 1,
-    "photo": "bergischgladbach.webp",
+    "photo": "bergischgladbach.jpg",
     "stays": [
       {
         "hotel": "Althoff Grandhotel Schloss Bensberg",
@@ -604,7 +604,7 @@
     "date": "2024-07-22",
     "distance": 1238,
     "days": 8,
-    "photo": "mediterraniancruise.webp",
+    "photo": "mediterraniancruise.jpg",
     "stays": [
       {
         "hotel": null,
@@ -621,7 +621,7 @@
     "date": "2024-10-26",
     "distance": 3282,
     "days": 9,
-    "photo": "egypttour.webp",
+    "photo": "egypttour.jpg",
     "stays": [
       {
         "hotel": null,
@@ -638,7 +638,7 @@
     "date": "2024-12-21",
     "distance": 11446,
     "days": 16,
-    "photo": "buenosaires.webp",
+    "photo": "buenosaires.jpg",
     "stays": [
       {
         "hotel": "725 Continental Hotel",
@@ -663,7 +663,7 @@
     "date": "2025-02-15",
     "distance": 5159,
     "days": 9,
-    "photo": "persiangulfcruise.webp",
+    "photo": "persiangulfcruise.jpg",
     "stays": [
       {
         "hotel": null,
@@ -680,7 +680,7 @@
     "date": "2025-04-08",
     "distance": 928,
     "days": 24,
-    "photo": "bordeaux.webp",
+    "photo": "bordeaux.jpg",
     "stays": [
       {
         "hotel": null,
@@ -713,7 +713,7 @@
     "date": "2025-05-13",
     "distance": 7784,
     "days": 7,
-    "photo": "greatwallmarathon.webp",
+    "photo": "greatwallmarathon.jpg",
     "stays": [
       {
         "hotel": null,
@@ -730,7 +730,7 @@
     "date": "2025-05-28",
     "distance": 3179,
     "days": 5,
-    "photo": "canaryislands.webp",
+    "photo": "canaryislands.jpg",
     "stays": [
       {
         "hotel": null,
@@ -747,7 +747,7 @@
     "date": "2025-07-11",
     "distance": 2535,
     "days": 9,
-    "photo": "ankara.webp",
+    "photo": "ankara.jpg",
     "stays": [
       {
         "hotel": null,
@@ -764,7 +764,7 @@
     "date": "2025-08-02",
     "distance": 2907,
     "days": 5,
-    "photo": "svalbard.webp",
+    "photo": "svalbard.jpg",
     "stays": [
       {
         "hotel": null,
@@ -781,7 +781,7 @@
     "date": "2025-10-17",
     "distance": 757,
     "days": 4,
-    "photo": "ukireland.webp",
+    "photo": "ukireland.jpg",
     "stays": [
       {
         "hotel": null,
@@ -798,7 +798,7 @@
     "date": "2025-11-25",
     "distance": 2984,
     "days": 8,
-    "photo": "cypruschallenge.webp",
+    "photo": "cypruschallenge.jpg",
     "stays": [
       {
         "hotel": null,
@@ -815,7 +815,7 @@
     "date": "2025-12-22",
     "distance": 9174,
     "days": 16,
-    "photo": "eastasiacruise.webp",
+    "photo": "eastasiacruise.jpg",
     "stays": [
       {
         "hotel": null,
@@ -832,7 +832,7 @@
     "date": "2026-02-21",
     "distance": 4859,
     "days": 9,
-    "photo": "capeverde.webp",
+    "photo": "capeverde.jpg",
     "stays": [
       {
         "hotel": null,
@@ -849,7 +849,7 @@
     "date": "2026-03-10",
     "distance": 431,
     "days": 3,
-    "photo": "paris.webp",
+    "photo": "paris.jpg",
     "stays": [
       {
         "hotel": "Hilton Paris La Defense",
@@ -866,7 +866,7 @@
     "date": "2026-03-23",
     "distance": 366,
     "days": 3,
-    "photo": "hamburg.webp",
+    "photo": "hamburg.jpg",
     "stays": [
       {
         "hotel": "Holiday Inn Hamburg - HafenCity",
@@ -883,7 +883,7 @@
     "date": "2026-04-18",
     "distance": 5760,
     "days": 14,
-    "photo": "silkroad.webp",
+    "photo": "silkroad.jpg",
     "stays": [
       {
         "hotel": "Farovon Khiva Hotel",
@@ -940,7 +940,7 @@
     "date": "2026-06-08",
     "distance": 1093,
     "days": 3,
-    "photo": "warsaw.webp",
+    "photo": "warsaw.jpg",
     "stays": [
       {
         "hotel": "Radisson Blu Sobieski Hotel, Warsaw",
@@ -957,7 +957,7 @@
     "date": "2026-10-10",
     "distance": 3373,
     "days": 8,
-    "photo": "jordantour.webp",
+    "photo": "jordantour.jpg",
     "stays": [
       {
         "hotel": null,
