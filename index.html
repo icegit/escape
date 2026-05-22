@@ -513,6 +513,7 @@
         const tripEndDate = getTripEndDate(travel);
         tripDetailsImage.src = getImageSrc(travel);
         tripDetailsImage.alt = travel.city;
+        tripDetailsImage.style.objectPosition = travel.photoPosition || "center";
         tripDetailsTitle.textContent = travel.city;
         tripDetailsMeta.textContent = `${formatDisplayDate(travel.date)} - ${formatDisplayDate(tripEndDate)}`;
 
@@ -602,9 +603,10 @@
 
         // choose src
         const imgSrc = getImageSrc(travel);
+        const imgPosition = travel.photoPosition || "center";
 
         card.innerHTML = `
-        <img src="${imgSrc}" alt="${travel.city}">
+        <img src="${imgSrc}" alt="${travel.city}" style="object-position:${imgPosition}">
         <div class="card-content">
         </div>
       `;
