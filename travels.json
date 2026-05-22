@@ -936,6 +936,23 @@
     ]
   },
   {
+    "city": "Warsaw",
+    "date": "2026-06-08",
+    "distance": 1093,
+    "days": 3,
+    "photo": "warsaw.webp",
+    "stays": [
+      {
+        "hotel": "Radisson Blu Sobieski Hotel, Warsaw",
+        "address": "Plac Artura Zawiszy 1, Warsaw, 02-025, Poland",
+        "latitude": 52.22313,
+        "longitude": 20.98493,
+        "checkIn": "2026-06-08",
+        "checkOut": "2026-06-11"
+      }
+    ]
+  },
+  {
     "city": "Jordan",
     "date": "2026-10-10",
     "distance": 3373,
