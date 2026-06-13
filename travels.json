@@ -953,6 +953,31 @@
     ]
   },
   {
+    "city": "Turkiye Tour",
+    "date": "2026-07-04",
+    "distance": 2790,
+    "days": 14,
+    "photo": "ankara.webp",
+    "stays": [
+      {
+        "hotel": null,
+        "address": "Kayseri, Turkey",
+        "latitude": 38.7205,
+        "longitude": 35.4826,
+        "checkIn": "2026-07-04",
+        "checkOut": "2026-07-18"
+      },
+      {
+        "hotel": null,
+        "address": "Samsun, Turkey",
+        "latitude": 41.2867,
+        "longitude": 36.33,
+        "checkIn": "2026-07-18",
+        "checkOut": "2026-07-18"
+      }
+    ]
+  },
+  {
     "city": "Jordan",
     "date": "2026-10-10",
     "distance": 3373,
