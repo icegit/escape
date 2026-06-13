@@ -378,12 +378,12 @@
       function formatDiff(diff) {
         const parts = [];
         if (diff.years)
-          parts.push(diff.years + (diff.years === 1 ? " Year" : " Years"));
+          parts.push(diff.years + (diff.years === 1 ? " year" : " years"));
         if (diff.months)
-          parts.push(diff.months + (diff.months === 1 ? " Month" : " Months"));
+          parts.push(diff.months + (diff.months === 1 ? " month" : " months"));
         if (diff.days)
-          parts.push(diff.days + (diff.days === 1 ? " Day" : " Days"));
-        return parts.length ? parts.join(" ") : "0 Days";
+          parts.push(diff.days + (diff.days === 1 ? " day" : " days"));
+        return parts.length ? parts.join(" ") : "0 days";
       }
 
       function daysUntil(dateStr) {
@@ -521,7 +521,7 @@
         tripDetailsSummary.append(
           createSummaryItem("Start", formatDisplayDate(travel.date)),
           createSummaryItem("End", formatDisplayDate(tripEndDate)),
-          createSummaryItem("Duration", `${travel.days} Days`),
+          createSummaryItem("Duration", `${travel.days} days`),
           createSummaryItem("Stops", `${travel.stays.length}`),
         );
 
@@ -587,15 +587,15 @@
           if (globalClickCount % 3 === 0) subtitle.textContent = fullText;
           else if (globalClickCount % 3 === 1)
             subtitle.textContent =
-              `${daysRemaining} Days` + (isPast ? " ago" : "");
+              `${daysRemaining} days` + (isPast ? " ago" : "");
           else {
             const w = Math.floor(daysRemaining / 7),
               d = daysRemaining % 7;
             const parts = [];
-            if (w > 0) parts.push(`${w} ${w === 1 ? "Week" : "Weeks"}`);
-            if (d > 0) parts.push(`${d} ${d === 1 ? "Day" : "Days"}`);
+            if (w > 0) parts.push(`${w} ${w === 1 ? "week" : "weeks"}`);
+            if (d > 0) parts.push(`${d} ${d === 1 ? "day" : "days"}`);
             subtitle.textContent =
-              (parts.length ? parts.join(" ") : "0 Days") +
+              (parts.length ? parts.join(" ") : "0 days") +
               (isPast ? " ago" : "");
           }
         }
@@ -633,7 +633,7 @@
         <span><i class="fas fa-calendar-day icon"></i>
           ${travelMid.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}
         </span>
-        <span><i class="fas fa-clock icon"></i>${travel.days} Days</span>
+        <span><i class="fas fa-clock icon"></i>${travel.days} days</span>
         <span><i class="fas fa-map-marker-alt icon"></i>${travel.distance.toLocaleString()} km</span>
       `;
         cardContent.appendChild(sub);

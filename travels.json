@@ -110,7 +110,7 @@
     ]
   },
   {
-    "city": "Bouillon + 2 more",
+    "city": "Belgian Ardennes",
     "date": "2017-08-19",
     "distance": 286,
     "days": 3,
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "city": "Milan + 2 more",
+    "city": "Italy",
     "date": "2019-10-19",
     "distance": 829,
     "days": 4,
@@ -252,7 +252,7 @@
     ]
   },
   {
-    "city": "Mexico Tour",
+    "city": "Mexico",
     "date": "2022-01-16",
     "distance": 8276,
     "days": 9,
@@ -286,7 +286,7 @@
     ]
   },
   {
-    "city": "Vik + 3 more",
+    "city": "Iceland",
     "date": "2022-04-23",
     "distance": 2014,
     "days": 7,
@@ -344,7 +344,7 @@
     ]
   },
   {
-    "city": "Warsaw + 1 more",
+    "city": "Poland",
     "date": "2023-04-06",
     "distance": 1093,
     "days": 4,
@@ -427,7 +427,7 @@
     ]
   },
   {
-    "city": "Prague + 1 more",
+    "city": "Prague & Lisbon",
     "date": "2023-05-18",
     "distance": 710,
     "days": 7,
@@ -494,7 +494,7 @@
     ]
   },
   {
-    "city": "Klaipeda + 9 more",
+    "city": "Baltics & Nordics",
     "date": "2023-12-24",
     "distance": 1120,
     "days": 12,
@@ -600,7 +600,7 @@
     ]
   },
   {
-    "city": "Mediterranian Cruise",
+    "city": "Mediterranean",
     "date": "2024-07-22",
     "distance": 1238,
     "days": 8,
@@ -617,7 +617,7 @@
     ]
   },
   {
-    "city": "Egypt Tour",
+    "city": "Egypt",
     "date": "2024-10-26",
     "distance": 3282,
     "days": 9,
@@ -634,7 +634,7 @@
     ]
   },
   {
-    "city": "Buenos Aires + 1 more",
+    "city": "Argentina",
     "date": "2024-12-21",
     "distance": 11446,
     "days": 16,
@@ -659,7 +659,7 @@
     ]
   },
   {
-    "city": "Persian Gulf Cruise",
+    "city": "Persian Gulf",
     "date": "2025-02-15",
     "distance": 5159,
     "days": 9,
@@ -676,7 +676,7 @@
     ]
   },
   {
-    "city": "Bordeaux + 2 more",
+    "city": "Bordeaux to Bali",
     "date": "2025-04-08",
     "distance": 928,
     "days": 24,
@@ -709,7 +709,7 @@
     ]
   },
   {
-    "city": "Great Wall Marathon",
+    "city": "Great Wall",
     "date": "2025-05-13",
     "distance": 7784,
     "days": 7,
@@ -794,7 +794,7 @@
     ]
   },
   {
-    "city": "Cyprus Challenge",
+    "city": "Cyprus",
     "date": "2025-11-25",
     "distance": 2984,
     "days": 8,
@@ -811,7 +811,7 @@
     ]
   },
   {
-    "city": "East Asia Cruise",
+    "city": "East Asia",
     "date": "2025-12-22",
     "distance": 9174,
     "days": 16,
@@ -953,7 +953,7 @@
     ]
   },
   {
-    "city": "Turkiye Tour",
+    "city": "Türkiye",
     "date": "2026-07-04",
     "distance": 2790,
     "days": 14,
