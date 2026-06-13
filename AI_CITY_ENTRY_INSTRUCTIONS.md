@@ -39,6 +39,12 @@ Each trip contains a `stays` array.
 - Stay object keeps: `hotel`, `address`, `latitude`, `longitude`, `checkIn`, `checkOut`.
 - Stay object must NOT keep: `city`, `date`, `distance`, `days`, `photo`.
 
+## Privacy rules (mandatory)
+
+- `hotel` must always be `null`. Never populate it with a hotel name, accommodation name, or property name.
+- `address` must contain only the city and country (e.g. `"Warsaw, Poland"`). Never include a street address, property name, or neighbourhood.
+- `latitude` and `longitude` must be generic city-centre coordinates. Never use coordinates that identify a specific property or street address. Round to 4 decimal places at most.
+
 ## Image rules
 
 - Store all trip photos in local `img/` folder.

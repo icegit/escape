@@ -7,18 +7,18 @@
     "photo": "sofia.jpg",
     "stays": [
       {
-        "hotel": "Rent-BG Apartments",
-        "address": "Dondukov blvd No 1, Sofia, Bulgaria",
-        "latitude": 42.6983309,
-        "longitude": 23.3241564,
+        "hotel": null,
+        "address": "Sofia, Bulgaria",
+        "latitude": 42.6977,
+        "longitude": 23.3219,
         "checkIn": "2003-07-25",
         "checkOut": "2003-07-28"
       },
       {
-        "hotel": "Guest Rooms Kostovi",
+        "hotel": null,
         "address": "Nessebar, Bulgaria",
-        "latitude": 42.6607865,
-        "longitude": 27.7167464,
+        "latitude": 42.6607,
+        "longitude": 27.7375,
         "checkIn": "2003-07-28",
         "checkOut": "2003-07-30"
       }
@@ -66,10 +66,10 @@
     "photo": "istanbul.jpg",
     "stays": [
       {
-        "hotel": "Airport Residence",
-        "address": "Yeni Sehir Mah.Mustafa Akyol Sokak No:3 Kurtkoy / Istanbul, Pendik, 34912 Istanbul, Turkey",
-        "latitude": 40.92395,
-        "longitude": 29.31161,
+        "hotel": null,
+        "address": "Istanbul, Turkey",
+        "latitude": 41.0082,
+        "longitude": 28.9784,
         "checkIn": "2016-12-29",
         "checkOut": "2016-12-30"
       }
@@ -83,10 +83,10 @@
     "photo": "amstelveen.jpg",
     "stays": [
       {
-        "hotel": "Cityden Zuidas",
-        "address": "Cityden Zuidas, 3, Professor J.H. Bavincklaan, Amstelveen, Noord-Holland, Nederland, 1183 AT, Nederland",
-        "latitude": 52.31704,
-        "longitude": 4.871966,
+        "hotel": null,
+        "address": "Amstelveen, Netherlands",
+        "latitude": 52.3103,
+        "longitude": 4.8697,
         "checkIn": "2017-04-02",
         "checkOut": "2017-04-07"
       }
@@ -100,10 +100,10 @@
     "photo": "istanbul.jpg",
     "stays": [
       {
-        "hotel": "Radisson Blu Hotel, Istanbul Sisli",
-        "address": "19 Mayis Cad. No: 2, Sisli, 34360 Istanbul, Turkey",
-        "latitude": 41.05892219,
-        "longitude": 28.98749977,
+        "hotel": null,
+        "address": "Istanbul, Turkey",
+        "latitude": 41.0082,
+        "longitude": 28.9784,
         "checkIn": "2017-05-17",
         "checkOut": "2017-05-18"
       }
@@ -117,26 +117,26 @@
     "photo": "bouillon.jpg",
     "stays": [
       {
-        "hotel": "Auberge de Jeunesse de Bouillon",
-        "address": "Auberge de Jeunesse Sur la Hauteur, 16, Route du Christ, Bouillon, Neufchâteau, Luxembourg, Wallonie, 6830, België / Belgique / Belgien",
-        "latitude": 49.793426,
-        "longitude": 5.07283,
+        "hotel": null,
+        "address": "Bouillon, Belgium",
+        "latitude": 49.7958,
+        "longitude": 5.0649,
         "checkIn": "2017-08-19",
         "checkOut": "2017-08-20"
       },
       {
-        "hotel": "B&B Le Nid Doux",
-        "address": "Rue Haute 37, 5550 Vresse-sur-Semois, Belgium",
-        "latitude": 49.864785,
-        "longitude": 4.954692,
+        "hotel": null,
+        "address": "Vresse-sur-Semois, Belgium",
+        "latitude": 49.8652,
+        "longitude": 4.9126,
         "checkIn": "2017-08-20",
         "checkOut": "2017-08-21"
       },
       {
-        "hotel": "A L'inattendue",
-        "address": "Rue Al Paul 15, 6880 Bertrix, Belgium",
-        "latitude": 49.855427,
-        "longitude": 5.263556,
+        "hotel": null,
+        "address": "Bertrix, Belgium",
+        "latitude": 49.8530,
+        "longitude": 5.2589,
         "checkIn": "2017-08-21",
         "checkOut": "2017-08-22"
       }
@@ -150,10 +150,10 @@
     "photo": "bruges.jpg",
     "stays": [
       {
-        "hotel": "Green Park Hotel Brugge",
-        "address": "Green Park Hotel Brugge, 20, Chartreuseweg, Sint-Michiels, Brugge, West-Vlaanderen, 8200, België / Belgique / Belgien",
-        "latitude": 51.173319,
-        "longitude": 3.203895,
+        "hotel": null,
+        "address": "Bruges, Belgium",
+        "latitude": 51.2093,
+        "longitude": 3.2247,
         "checkIn": "2019-03-01",
         "checkOut": "2019-03-03"
       }
@@ -167,34 +167,34 @@
     "photo": "milan.jpg",
     "stays": [
       {
-        "hotel": "Guest House Minas",
-        "address": "Via Pietro Calvi 18, P. Vittoria, 20129 Milan, Italy",
-        "latitude": 45.464194,
-        "longitude": 9.189635,
+        "hotel": null,
+        "address": "Milan, Italy",
+        "latitude": 45.4654,
+        "longitude": 9.1866,
         "checkIn": "2019-10-19",
         "checkOut": "2019-10-20"
       },
       {
-        "hotel": "Matilde's House",
-        "address": "Via Aurelia 27, 19020 Riccò del Golfo di Spezia, Italy",
-        "latitude": 44.136786,
-        "longitude": 9.77621,
+        "hotel": null,
+        "address": "Riccò del Golfo di Spezia, Italy",
+        "latitude": 44.1437,
+        "longitude": 9.7267,
         "checkIn": "2019-10-20",
         "checkOut": "2019-10-21"
       },
       {
-        "hotel": "La Farina Apartments",
-        "address": "Via Giuseppe La Farina 27, Campo Di Marte, 50132 Florence, Italy",
-        "latitude": 43.77838,
-        "longitude": 11.271749,
+        "hotel": null,
+        "address": "Florence, Italy",
+        "latitude": 43.7696,
+        "longitude": 11.2558,
         "checkIn": "2019-10-21",
         "checkOut": "2019-10-22"
       },
       {
-        "hotel": "hu Firenze Camping in Town",
-        "address": "Firenze, Toscana, Italia",
-        "latitude": 43.769796,
-        "longitude": 11.25564,
+        "hotel": null,
+        "address": "Florence, Italy",
+        "latitude": 43.7696,
+        "longitude": 11.2558,
         "checkIn": "2019-10-22",
         "checkOut": "2019-10-23"
       }
@@ -208,10 +208,10 @@
     "photo": "valkenburg.jpg",
     "stays": [
       {
-        "hotel": "Appartementen Valkenburg",
-        "address": "Hermes Appartementen, 141, Rijksweg, Vilt, Berg en Terblijt, Valkenburg aan de Geul, Limburg, Nederland, 6325 AD, Nederland",
-        "latitude": 50.857419,
-        "longitude": 5.811483,
+        "hotel": null,
+        "address": "Valkenburg, Netherlands",
+        "latitude": 50.8667,
+        "longitude": 5.8293,
         "checkIn": "2019-12-23",
         "checkOut": "2019-12-24"
       }
@@ -225,10 +225,10 @@
     "photo": "tigaki.jpg",
     "stays": [
       {
-        "hotel": "Miros Hotel Apartments",
-        "address": "Tigaki, Tigaki, 85300, Greece",
-        "latitude": 36.889362,
-        "longitude": 27.183343,
+        "hotel": null,
+        "address": "Tigaki, Greece",
+        "latitude": 36.8895,
+        "longitude": 27.1569,
         "checkIn": "2020-07-08",
         "checkOut": "2020-07-09"
       }
@@ -242,10 +242,10 @@
     "photo": "istanbul.jpg",
     "stays": [
       {
-        "hotel": "Park Inn by Radisson Istanbul Atasehir",
-        "address": "Serifali Mahallesi Kible sokak, No 25, Umraniye, 34775 Istanbul, Turkey",
-        "latitude": 40.99259,
-        "longitude": 29.13693,
+        "hotel": null,
+        "address": "Istanbul, Turkey",
+        "latitude": 41.0082,
+        "longitude": 28.9784,
         "checkIn": "2020-12-03",
         "checkOut": "2020-12-05"
       }
@@ -276,10 +276,10 @@
     "photo": "gerardmer.jpg",
     "stays": [
       {
-        "hotel": "Chalet de Martimprey",
-        "address": "Chalet de Martimprey, 26, D 8, Gerbépal, Saint-Dié-des-Vosges, Vosges, Grand Est, France métropolitaine, 88430, France",
-        "latitude": 48.098812,
-        "longitude": 6.904988,
+        "hotel": null,
+        "address": "Gerbépal, France",
+        "latitude": 48.0728,
+        "longitude": 6.8776,
         "checkIn": "2022-02-20",
         "checkOut": "2022-02-25"
       }
@@ -293,34 +293,34 @@
     "photo": "vik.jpg",
     "stays": [
       {
-        "hotel": "The Barn",
-        "address": "The Barn, Hvammur, Kjósarhreppur, Höfuðborgarsvæðið, Ísland",
-        "latitude": 64.371209,
-        "longitude": -21.57522,
+        "hotel": null,
+        "address": "Kjósarhreppur, Iceland",
+        "latitude": 64.2539,
+        "longitude": -21.8954,
         "checkIn": "2022-04-23",
         "checkOut": "2022-04-24"
       },
       {
-        "hotel": "Finnsstadir Holiday Home with Hot tub",
-        "address": "Finnstadir, 701 Egilsstadir, Iceland",
-        "latitude": 65.262041,
-        "longitude": -14.403526,
+        "hotel": null,
+        "address": "Egilsstadir, Iceland",
+        "latitude": 65.2627,
+        "longitude": -14.3948,
         "checkIn": "2022-04-26",
         "checkOut": "2022-04-27"
       },
       {
-        "hotel": "Vogar Travel Service",
-        "address": "Vogar, 660 Myvatn, Iceland",
-        "latitude": 65.621942,
-        "longitude": -16.921795,
+        "hotel": null,
+        "address": "Mývatn, Iceland",
+        "latitude": 65.6008,
+        "longitude": -16.9997,
         "checkIn": "2022-04-27",
         "checkOut": "2022-04-28"
       },
       {
-        "hotel": "Hvammstangi Cottages",
-        "address": "Smáhýsin á Hvammstanga, Kirkjuhvammsvegur, Hvammstangi, Húnaþing vestra, Norðurland vestra, 530, Ísland",
-        "latitude": 65.40096,
-        "longitude": -20.930535,
+        "hotel": null,
+        "address": "Hvammstangi, Iceland",
+        "latitude": 65.3990,
+        "longitude": -20.9479,
         "checkIn": "2022-04-29",
         "checkOut": "2022-04-30"
       }
@@ -334,10 +334,10 @@
     "photo": "dubai.jpg",
     "stays": [
       {
-        "hotel": "Signature 1 Hotel Tecom",
-        "address": "Signature 1 Hotel, شارع السيف ١, الثنية 1, دبي, الإمارات العربية المتحدة",
-        "latitude": 25.096695,
-        "longitude": 55.173997,
+        "hotel": null,
+        "address": "Dubai, United Arab Emirates",
+        "latitude": 25.2048,
+        "longitude": 55.2708,
         "checkIn": "2022-10-26",
         "checkOut": "2022-11-04"
       }
@@ -351,18 +351,18 @@
     "photo": "warsaw.jpg",
     "stays": [
       {
-        "hotel": "Novotel Warszawa Centrum",
-        "address": "Novotel Warszawa Centrum, 94/98, Marszałkowska, Krucza, Śródmieście Południowe, Śródmieście, Warszawa, województwo mazowieckie, 00-510, Polska",
-        "latitude": 52.22936,
-        "longitude": 21.013044,
+        "hotel": null,
+        "address": "Warsaw, Poland",
+        "latitude": 52.2297,
+        "longitude": 21.0122,
         "checkIn": "2023-04-06",
         "checkOut": "2023-04-07"
       },
       {
-        "hotel": "Park Inn by Radisson Krakow",
-        "address": "Monte Cassino 2, Debniki, 31-337 Krakow, Poland",
-        "latitude": 50.047464,
-        "longitude": 19.929897,
+        "hotel": null,
+        "address": "Krakow, Poland",
+        "latitude": 50.0647,
+        "longitude": 19.9450,
         "checkIn": "2023-04-07",
         "checkOut": "2023-04-10"
       }
@@ -376,10 +376,10 @@
     "photo": "hamburg.jpg",
     "stays": [
       {
-        "hotel": "PIERDREI Hotel HafenCity Hamburg",
-        "address": "Pierdrei, Am Sandtorkai, Quartier Am Sandtorpark/Grasbrook, HafenCity, Hamburg-Mitte, Hamburg, 20457, Deutschland",
-        "latitude": 53.543416,
-        "longitude": 9.996012,
+        "hotel": null,
+        "address": "Hamburg, Germany",
+        "latitude": 53.5511,
+        "longitude": 9.9937,
         "checkIn": "2023-04-24",
         "checkOut": "2023-04-25"
       }
@@ -393,34 +393,34 @@
     "photo": "dubai.jpg",
     "stays": [
       {
-        "hotel": "Stella Di Mare Dubai Marina Hotel",
-        "address": "Stella Di Mare Dubai Marina, شارع المللعي, دبي مارينا, مرسى دبي, دبي, الإمارات العربية المتحدة",
-        "latitude": 25.06874,
-        "longitude": 55.133967,
+        "hotel": null,
+        "address": "Dubai, United Arab Emirates",
+        "latitude": 25.2048,
+        "longitude": 55.2708,
         "checkIn": "2023-05-03",
         "checkOut": "2023-05-05"
       },
       {
-        "hotel": "Radisson Blu Hotel, Dubai Media City",
-        "address": "Radisson Blu Dubai Media City, شارع الفلك, الصفوح, دبي, الإمارات العربية المتحدة",
-        "latitude": 25.094109,
-        "longitude": 55.155889,
+        "hotel": null,
+        "address": "Dubai, United Arab Emirates",
+        "latitude": 25.2048,
+        "longitude": 55.2708,
         "checkIn": "2023-05-05",
         "checkOut": "2023-05-07"
       },
       {
-        "hotel": "Radisson Blu Hotel, Dubai Media City",
-        "address": "Radisson Blu Dubai Media City, شارع الفلك, الصفوح, دبي, الإمارات العربية المتحدة",
-        "latitude": 25.094109,
-        "longitude": 55.155889,
+        "hotel": null,
+        "address": "Dubai, United Arab Emirates",
+        "latitude": 25.2048,
+        "longitude": 55.2708,
         "checkIn": "2023-05-07",
         "checkOut": "2023-05-10"
       },
       {
-        "hotel": "Radisson Blu Hotel, Dubai Media City",
-        "address": "Radisson Blu Dubai Media City, شارع الفلك, الصفوح, دبي, الإمارات العربية المتحدة",
-        "latitude": 25.094109,
-        "longitude": 55.155889,
+        "hotel": null,
+        "address": "Dubai, United Arab Emirates",
+        "latitude": 25.2048,
+        "longitude": 55.2708,
         "checkIn": "2023-05-10",
         "checkOut": "2023-05-12"
       }
@@ -434,26 +434,26 @@
     "photo": "prague.jpg",
     "stays": [
       {
-        "hotel": "Hilton Prague Atrium",
-        "address": "Pobrezni 1, Prague, 18600, Czech Republic",
-        "latitude": 50.093908,
-        "longitude": 14.448299,
+        "hotel": null,
+        "address": "Prague, Czech Republic",
+        "latitude": 50.0755,
+        "longitude": 14.4378,
         "checkIn": "2023-05-18",
         "checkOut": "2023-05-20"
       },
       {
-        "hotel": "Hotel Marques De Pombal",
-        "address": "Hotel Marquês de Pombal, 243, Avenida da Liberdade, Coração de Jesus, Santo António, Lisboa, 1250-143, Portugal",
-        "latitude": 38.723195,
-        "longitude": -9.149034,
+        "hotel": null,
+        "address": "Lisbon, Portugal",
+        "latitude": 38.7223,
+        "longitude": -9.1393,
         "checkIn": "2023-05-23",
         "checkOut": "2023-05-24"
       },
       {
-        "hotel": "Lisboa Pessoa Hotel",
-        "address": "Lisboa Pessoa Hotel, 8, Rua da Oliveira ao Carmo, Sacramento, Santa Maria Maior, Madalena, Lisboa, 1200-309, Portugal",
-        "latitude": 38.712559,
-        "longitude": -9.141479,
+        "hotel": null,
+        "address": "Lisbon, Portugal",
+        "latitude": 38.7223,
+        "longitude": -9.1393,
         "checkIn": "2023-05-24",
         "checkOut": "2023-05-25"
       }
@@ -467,10 +467,10 @@
     "photo": "kizilcahamam.jpg",
     "stays": [
       {
-        "hotel": "Cam Thermal Resort Hotel & Spa",
-        "address": "Yenice mah. soguksu cad. No:68 Kizilcahamam, Ankara, 06890, Turkey",
-        "latitude": 40.470095,
-        "longitude": 32.652856,
+        "hotel": null,
+        "address": "Kizilcahamam, Turkey",
+        "latitude": 40.4684,
+        "longitude": 32.6521,
         "checkIn": "2023-08-11",
         "checkOut": "2023-08-12"
       }
@@ -484,10 +484,10 @@
     "photo": "heraklion.jpg",
     "stays": [
       {
-        "hotel": "The Blossom Loft City Center Getaway Studio",
-        "address": "Zotou, Heraklio Town, 71202, Greece",
-        "latitude": 35.33908,
-        "longitude": 25.133284,
+        "hotel": null,
+        "address": "Heraklion, Greece",
+        "latitude": 35.3387,
+        "longitude": 25.1442,
         "checkIn": "2023-09-26",
         "checkOut": "2023-09-30"
       }
@@ -501,82 +501,82 @@
     "photo": "klaipeda.jpg",
     "stays": [
       {
-        "hotel": "VICTORIA Hotel Klaipeda",
-        "address": "Victoria, Naujojo Sodo g., Vitė, Naujamiestis, Senamiestis, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 92118, Lietuva",
-        "latitude": 55.711669,
-        "longitude": 21.130726,
+        "hotel": null,
+        "address": "Klaipeda, Lithuania",
+        "latitude": 55.7033,
+        "longitude": 21.1443,
         "checkIn": "2023-12-24",
         "checkOut": "2023-12-25"
       },
       {
-        "hotel": "Hilton Garden Inn Vilnius City Centre",
-        "address": "Hilton Garden Inn Vilnius City Centre, 44B, Gedimino pr., Lukiškės, Naujamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 01110, Lietuva",
-        "latitude": 54.688611,
-        "longitude": 25.267057,
+        "hotel": null,
+        "address": "Vilnius, Lithuania",
+        "latitude": 54.6872,
+        "longitude": 25.2797,
         "checkIn": "2023-12-25",
         "checkOut": "2023-12-26"
       },
       {
-        "hotel": "Aparthotel Amella",
-        "address": "Amella, 8, Emīlijas Benjamiņas iela, Lastādija, Latgales apkaime, Rīga, LV-1050, Latvija",
-        "latitude": 56.943152,
-        "longitude": 24.123767,
+        "hotel": null,
+        "address": "Riga, Latvia",
+        "latitude": 56.9460,
+        "longitude": 24.1059,
         "checkIn": "2023-12-26",
         "checkOut": "2023-12-27"
       },
       {
-        "hotel": "The von Stackelberg Hotel Tallinn",
-        "address": "Tallinn, Harju maakond, Eesti",
-        "latitude": 59.437242,
-        "longitude": 24.757269,
+        "hotel": null,
+        "address": "Tallinn, Estonia",
+        "latitude": 59.4370,
+        "longitude": 24.7536,
         "checkIn": "2023-12-27",
         "checkOut": "2023-12-28"
       },
       {
-        "hotel": "Scandic Grand Marina",
-        "address": "Scandic Grand Marina, 7, Katajanokanlaituri, Katajanokka, Eteläinen suurpiiri, Helsinki, Helsingin seutukunta, Uusimaa, Manner-Suomi, 00160, Suomi / Finland",
-        "latitude": 60.165973,
-        "longitude": 24.964333,
+        "hotel": null,
+        "address": "Helsinki, Finland",
+        "latitude": 60.1699,
+        "longitude": 24.9384,
         "checkIn": "2023-12-28",
         "checkOut": "2023-12-29"
       },
       {
-        "hotel": "Lapland Hotels Saaga",
-        "address": "Lapland Hotels Saaga, 42, Iso-Ylläksentie, Kolari, Tunturi-Lapin seutukunta, Lappi, Manner-Suomi, 95980, Suomi / Finland",
-        "latitude": 67.551242,
-        "longitude": 24.250875,
+        "hotel": null,
+        "address": "Ylläs, Finland",
+        "latitude": 67.5551,
+        "longitude": 24.2500,
         "checkIn": "2023-12-29",
         "checkOut": "2023-12-30"
       },
       {
-        "hotel": "Levin Hurma",
-        "address": "Utsunkulma 8, 99130 Levi, Finland",
-        "latitude": 67.784406,
-        "longitude": 24.855729,
+        "hotel": null,
+        "address": "Levi, Finland",
+        "latitude": 67.7993,
+        "longitude": 24.8430,
         "checkIn": "2023-12-30",
         "checkOut": "2023-12-31"
       },
       {
-        "hotel": "Hotel Golden Circle Suites",
-        "address": "19 Korkalonkatu, 96200 Rovaniemi, Finland",
-        "latitude": 66.500761,
-        "longitude": 25.731055,
+        "hotel": null,
+        "address": "Rovaniemi, Finland",
+        "latitude": 66.5039,
+        "longitude": 25.7294,
         "checkIn": "2023-12-31",
         "checkOut": "2024-01-01"
       },
       {
-        "hotel": "Radisson Blu Marina Palace Hotel, Turku",
-        "address": "Radisson Blu Marina Palace, 32, Linnankatu, VII, Keskusta, Turku, Turun seutukunta, Varsinais-Suomi, Manner-Suomi, 20100, Suomi / Finland",
-        "latitude": 60.446601,
-        "longitude": 22.260337,
+        "hotel": null,
+        "address": "Turku, Finland",
+        "latitude": 60.4518,
+        "longitude": 22.2666,
         "checkIn": "2024-01-02",
         "checkOut": "2024-01-03"
       },
       {
-        "hotel": "Tivoli Hotel",
-        "address": "Tivoli Hotel (Kalvebod Brygge), Kalvebod Brygge, Frederiks Brygge, Postbyen, Kødbyen, København, Københavns Kommune, Region Hovedstaden, 1561, Danmark",
-        "latitude": 55.665121,
-        "longitude": 12.565043,
+        "hotel": null,
+        "address": "Copenhagen, Denmark",
+        "latitude": 55.6761,
+        "longitude": 12.5683,
         "checkIn": "2024-01-04",
         "checkOut": "2024-01-05"
       }
@@ -590,10 +590,10 @@
     "photo": "bergischgladbach.jpg",
     "stays": [
       {
-        "hotel": "Althoff Grandhotel Schloss Bensberg",
-        "address": "Kadettenstrasse, 51429 Bergisch Gladbach, Germany",
-        "latitude": 50.967032,
-        "longitude": 7.159675,
+        "hotel": null,
+        "address": "Bergisch Gladbach, Germany",
+        "latitude": 50.9931,
+        "longitude": 7.1328,
         "checkIn": "2024-05-03",
         "checkOut": "2024-05-04"
       }
@@ -641,10 +641,10 @@
     "photo": "buenosaires.jpg",
     "stays": [
       {
-        "hotel": "725 Continental Hotel",
-        "address": "725 Continental, Avenida Presidente Roque Sáenz Peña, Microcentro, San Nicolás, Buenos Aires, Comuna 1, Ciudad Autónoma de Buenos Aires, C1002AAA, Argentina",
-        "latitude": -34.606102,
-        "longitude": -58.37672,
+        "hotel": null,
+        "address": "Buenos Aires, Argentina",
+        "latitude": -34.6037,
+        "longitude": -58.3816,
         "checkIn": "2024-12-21",
         "checkOut": "2024-12-22"
       },
@@ -684,17 +684,17 @@
     "stays": [
       {
         "hotel": null,
-        "address": "Bordeaux, Gironde, Nouvelle-Aquitaine, France métropolitaine, France",
-        "latitude": 44.841225,
-        "longitude": -0.580036,
+        "address": "Bordeaux, France",
+        "latitude": 44.8412,
+        "longitude": -0.5800,
         "checkIn": "2025-04-08",
         "checkOut": "2025-04-12"
       },
       {
         "hotel": null,
-        "address": "Milano, Lombardia, Italia",
-        "latitude": 45.464194,
-        "longitude": 9.189635,
+        "address": "Milan, Italy",
+        "latitude": 45.4654,
+        "longitude": 9.1866,
         "checkIn": "2025-04-15",
         "checkOut": "2025-04-18"
       },
@@ -751,9 +751,9 @@
     "stays": [
       {
         "hotel": null,
-        "address": "Ankara, Çankaya, Ankara, İç Anadolu Bölgesi, 06420, Türkiye",
-        "latitude": 39.920776,
-        "longitude": 32.85405,
+        "address": "Ankara, Turkey",
+        "latitude": 39.9208,
+        "longitude": 32.8541,
         "checkIn": "2025-07-11",
         "checkOut": "2025-07-20"
       }
@@ -852,10 +852,10 @@
     "photo": "paris.jpg",
     "stays": [
       {
-        "hotel": "Hilton Paris La Defense",
-        "address": "2 Pl. de la Défense, 92800 Puteaux, France",
-        "latitude": 48.85889,
-        "longitude": 2.320041,
+        "hotel": null,
+        "address": "Paris, France",
+        "latitude": 48.8566,
+        "longitude": 2.3522,
         "checkIn": "2026-03-10",
         "checkOut": "2026-03-13"
       }
@@ -869,10 +869,10 @@
     "photo": "hamburg.jpg",
     "stays": [
       {
-        "hotel": "Holiday Inn Hamburg - HafenCity",
-        "address": "Überseeallee 15, 20457 Hamburg, Germany",
-        "latitude": 53.550341,
-        "longitude": 10.000654,
+        "hotel": null,
+        "address": "Hamburg, Germany",
+        "latitude": 53.5511,
+        "longitude": 9.9937,
         "checkIn": "2026-03-23",
         "checkOut": "2026-03-26"
       }
@@ -886,50 +886,50 @@
     "photo": "silkroad.jpg",
     "stays": [
       {
-        "hotel": "Farovon Khiva Hotel",
+        "hotel": null,
         "address": "Khiva, Uzbekistan",
-        "latitude": 41.3793,
-        "longitude": 60.3616,
+        "latitude": 41.3775,
+        "longitude": 60.3619,
         "checkIn": "2026-04-18",
         "checkOut": "2026-04-19"
       },
       {
-        "hotel": "Shahristan Plaza",
+        "hotel": null,
         "address": "Bukhara, Uzbekistan",
-        "latitude": 39.7748,
-        "longitude": 64.4149,
+        "latitude": 39.7681,
+        "longitude": 64.4556,
         "checkIn": "2026-04-20",
         "checkOut": "2026-04-22"
       },
       {
-        "hotel": "Medina Hotel Samarkand",
-        "address": "53 Dahbed Road, Samarkand, Uzbekistan, 140120",
-        "latitude": 39.654,
-        "longitude": 66.9752,
+        "hotel": null,
+        "address": "Samarkand, Uzbekistan",
+        "latitude": 39.6542,
+        "longitude": 66.9597,
         "checkIn": "2026-04-22",
         "checkOut": "2026-04-25"
       },
       {
-        "hotel": "Rahat Palace Hotel",
-        "address": "Furmanova 4, Almaty, Kazakhstan",
-        "latitude": 43.2631,
-        "longitude": 76.9308,
+        "hotel": null,
+        "address": "Almaty, Kazakhstan",
+        "latitude": 43.2220,
+        "longitude": 76.8512,
         "checkIn": "2026-04-25",
         "checkOut": "2026-04-29"
       },
       {
-        "hotel": "Green Valley Yurts Kolsay",
-        "address": "Kolsay Lakes, Almaty Region, Kazakhstan",
+        "hotel": null,
+        "address": "Kolsay Lakes, Kazakhstan",
         "latitude": 43.05,
         "longitude": 78.9833,
         "checkIn": "2026-04-29",
         "checkOut": "2026-04-30"
       },
       {
-        "hotel": "Rahat Palace Hotel",
-        "address": "Furmanova 4, Almaty, Kazakhstan",
-        "latitude": 43.2631,
-        "longitude": 76.9308,
+        "hotel": null,
+        "address": "Almaty, Kazakhstan",
+        "latitude": 43.2220,
+        "longitude": 76.8512,
         "checkIn": "2026-04-30",
         "checkOut": "2026-05-02"
       }
@@ -943,10 +943,10 @@
     "photo": "warsaw.jpg",
     "stays": [
       {
-        "hotel": "Radisson Blu Sobieski Hotel, Warsaw",
-        "address": "Plac Artura Zawiszy 1, Warsaw, 02-025, Poland",
-        "latitude": 52.22313,
-        "longitude": 20.98493,
+        "hotel": null,
+        "address": "Warsaw, Poland",
+        "latitude": 52.2297,
+        "longitude": 21.0122,
         "checkIn": "2026-06-08",
         "checkOut": "2026-06-11"
       }
@@ -987,40 +987,40 @@
       {
         "hotel": null,
         "address": "Amman, Jordan",
-        "latitude": 31.9515694,
-        "longitude": 35.9239625,
+        "latitude": 31.9516,
+        "longitude": 35.9240,
         "checkIn": "2026-10-10",
         "checkOut": "2026-10-12"
       },
       {
         "hotel": null,
         "address": "Dead Sea, Jordan",
-        "latitude": 31.6406337,
-        "longitude": 35.5746844,
+        "latitude": 31.6406,
+        "longitude": 35.5747,
         "checkIn": "2026-10-12",
         "checkOut": "2026-10-13"
       },
       {
         "hotel": null,
         "address": "Wadi Musa, Jordan",
-        "latitude": 30.3216568,
-        "longitude": 35.4800889,
+        "latitude": 30.3217,
+        "longitude": 35.4801,
         "checkIn": "2026-10-13",
         "checkOut": "2026-10-15"
       },
       {
         "hotel": null,
         "address": "Wadi Rum, Jordan",
-        "latitude": 29.5084443,
-        "longitude": 35.3362154,
+        "latitude": 29.5084,
+        "longitude": 35.3362,
         "checkIn": "2026-10-15",
         "checkOut": "2026-10-16"
       },
       {
         "hotel": null,
         "address": "Aqaba, Jordan",
-        "latitude": 29.5266483,
-        "longitude": 35.0075433,
+        "latitude": 29.5266,
+        "longitude": 35.0075,
         "checkIn": "2026-10-16",
         "checkOut": "2026-10-18"
       }
