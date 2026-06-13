@@ -591,8 +591,11 @@
           else {
             const w = Math.floor(daysRemaining / 7),
               d = daysRemaining % 7;
+            const parts = [];
+            if (w > 0) parts.push(`${w} ${w === 1 ? "Week" : "Weeks"}`);
+            if (d > 0) parts.push(`${d} ${d === 1 ? "Day" : "Days"}`);
             subtitle.textContent =
-              `${w} ${w === 1 ? "Week" : "Weeks"} ${d} ${d === 1 ? "Day" : "Days"}` +
+              (parts.length ? parts.join(" ") : "0 Days") +
               (isPast ? " ago" : "");
           }
         }
