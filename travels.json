@@ -978,49 +978,49 @@
     ]
   },
   {
-    "city": "Jordan",
+    "city": "Tunisia",
     "date": "2026-10-10",
-    "distance": 3373,
+    "distance": 1778,
     "days": 8,
-    "photo": "jordantour.jpg",
+    "photo": "tunisiatour.webp",
     "stays": [
       {
         "hotel": null,
-        "address": "Amman, Jordan",
-        "latitude": 31.9516,
-        "longitude": 35.9240,
+        "address": "Tunis, Tunisia",
+        "latitude": 36.8065,
+        "longitude": 10.1815,
         "checkIn": "2026-10-10",
         "checkOut": "2026-10-12"
       },
       {
         "hotel": null,
-        "address": "Dead Sea, Jordan",
-        "latitude": 31.6406,
-        "longitude": 35.5747,
+        "address": "Hammamet, Tunisia",
+        "latitude": 36.4000,
+        "longitude": 10.6167,
         "checkIn": "2026-10-12",
         "checkOut": "2026-10-13"
       },
       {
         "hotel": null,
-        "address": "Wadi Musa, Jordan",
-        "latitude": 30.3217,
-        "longitude": 35.4801,
+        "address": "Tozeur, Tunisia",
+        "latitude": 33.9197,
+        "longitude": 8.1335,
         "checkIn": "2026-10-13",
         "checkOut": "2026-10-15"
       },
       {
         "hotel": null,
-        "address": "Wadi Rum, Jordan",
-        "latitude": 29.5084,
-        "longitude": 35.3362,
+        "address": "Douz, Tunisia",
+        "latitude": 33.4663,
+        "longitude": 9.0203,
         "checkIn": "2026-10-15",
         "checkOut": "2026-10-16"
       },
       {
         "hotel": null,
-        "address": "Aqaba, Jordan",
-        "latitude": 29.5266,
-        "longitude": 35.0075,
+        "address": "Houmt Souk, Tunisia",
+        "latitude": 33.8758,
+        "longitude": 10.8575,
         "checkIn": "2026-10-16",
         "checkOut": "2026-10-18"
       }
