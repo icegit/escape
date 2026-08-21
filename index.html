@@ -66,9 +66,12 @@
       }
       .weight-status {
         margin: -10px 0 0;
-        color: green;
+        color: #8b0000;
         font-size: 15px;
         font-weight: 500;
+      }
+      .weight-status[hidden] {
+        display: none;
       }
       .sub-subtitle {
         display: flex;
@@ -346,6 +349,7 @@
       // Data lives in travels.json (same folder as this file)
       let travels = [];
       let weightStatus = null;
+      const revealedWeightCards = new Set();
       const tripModal = document.getElementById("tripDetailsModal");
       const tripDetailsImage = document.getElementById("tripDetailsImage");
       const tripDetailsTitle = document.getElementById("tripDetailsTitle");
@@ -639,13 +643,25 @@
         cardContent.appendChild(subtitle);
 
         if (!isPast && weightStatus && Number.isFinite(weightStatus.kgToLose)) {
+          const weightCardKey = `${travel.city}|${travel.date}`;
           const weight = document.createElement("p");
           weight.className = "weight-status";
+          weight.hidden = !revealedWeightCards.has(weightCardKey);
           weight.textContent =
             weightStatus.kgToLose > 0
               ? `${weightStatus.kgToLose.toLocaleString("en-GB", { maximumFractionDigits: 1 })} kg to lose`
               : "Target weight reached";
           cardContent.appendChild(weight);
+
+          card.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            if (revealedWeightCards.has(weightCardKey)) {
+              revealedWeightCards.delete(weightCardKey);
+            } else {
+              revealedWeightCards.add(weightCardKey);
+            }
+            weight.hidden = !revealedWeightCards.has(weightCardKey);
+          });
         }
 
         // footer row
