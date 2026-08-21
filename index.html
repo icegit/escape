@@ -64,6 +64,12 @@
         font-weight: 500;
         cursor: pointer;
       }
+      .weight-status {
+        margin: -10px 0 0;
+        color: green;
+        font-size: 15px;
+        font-weight: 500;
+      }
       .sub-subtitle {
         display: flex;
         justify-content: space-between;
@@ -83,6 +89,9 @@
       }
       .past .subtitle {
         color: gray !important;
+      }
+      .past .weight-status {
+        color: gray;
       }
       @media (max-width: 800px) {
         .container {
@@ -336,6 +345,7 @@
       const BASE_IMG_URL = "./img/";
       // Data lives in travels.json (same folder as this file)
       let travels = [];
+      let weightStatus = null;
       const tripModal = document.getElementById("tripDetailsModal");
       const tripDetailsImage = document.getElementById("tripDetailsImage");
       const tripDetailsTitle = document.getElementById("tripDetailsTitle");
@@ -344,7 +354,9 @@
       const tripDetailsStays = document.getElementById("tripDetailsStays");
       const tripDetailsClose = document.getElementById("tripDetailsClose");
 
-      let globalClickCount = 0;
+      // Start with the weeks + days countdown. Clicking it still cycles through
+      // calendar months/days, total days, and weeks/days.
+      let globalClickCount = 2;
       let showAll = false;
 
       document.getElementById("toggleButton").addEventListener("click", () => {
@@ -626,6 +638,16 @@
         cardContent.appendChild(titleButton);
         cardContent.appendChild(subtitle);
 
+        if (!isPast && weightStatus && Number.isFinite(weightStatus.kgToLose)) {
+          const weight = document.createElement("p");
+          weight.className = "weight-status";
+          weight.textContent =
+            weightStatus.kgToLose > 0
+              ? `${weightStatus.kgToLose.toLocaleString("en-GB", { maximumFractionDigits: 1 })} kg to lose`
+              : "Target weight reached";
+          cardContent.appendChild(weight);
+        }
+
         // footer row
         const sub = document.createElement("div");
         sub.className = "sub-subtitle";
@@ -656,8 +678,28 @@
         }
       }
 
+      async function loadWeightStatus() {
+        try {
+          const response = await fetch(`./health.json?v=${Date.now()}`, {
+            cache: "no-store",
+          });
+          if (!response.ok) return;
+
+          const health = await response.json();
+          if (health.kgToLose === null || health.kgToLose === "") return;
+          const kgToLose = Number(health.kgToLose);
+          if (!Number.isFinite(kgToLose)) return;
+
+          weightStatus = { kgToLose: Math.max(0, kgToLose) };
+          if (travels.length) displayTravels();
+        } catch (error) {
+          console.warn("Could not load Garmin weight status.", error);
+        }
+      }
+
       // initial render
       loadTravels();
+      loadWeightStatus();
     </script>
   </body>
 </html>
