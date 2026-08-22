@@ -73,6 +73,11 @@
       .weight-status[hidden] {
         display: none;
       }
+      .card.has-private-weight {
+        -webkit-touch-callout: none;
+        touch-action: pan-y;
+        user-select: none;
+      }
       .sub-subtitle {
         display: flex;
         justify-content: space-between;
@@ -645,6 +650,7 @@
         if (!isPast && weightStatus && Number.isFinite(weightStatus.kgToLose)) {
           const weightCardKey = `${travel.city}|${travel.date}`;
           const weight = document.createElement("p");
+          card.classList.add("has-private-weight");
           weight.className = "weight-status";
           weight.hidden = !revealedWeightCards.has(weightCardKey);
           weight.textContent =
@@ -653,15 +659,61 @@
               : "Target weight reached";
           cardContent.appendChild(weight);
 
-          card.addEventListener("contextmenu", (event) => {
-            event.preventDefault();
+          const toggleWeight = () => {
             if (revealedWeightCards.has(weightCardKey)) {
               revealedWeightCards.delete(weightCardKey);
             } else {
               revealedWeightCards.add(weightCardKey);
             }
             weight.hidden = !revealedWeightCards.has(weightCardKey);
+          };
+
+          let longPressTimer = null;
+          let touchStartX = 0;
+          let touchStartY = 0;
+          let ignoreContextMenuUntil = 0;
+          let suppressClickUntil = 0;
+          const cancelLongPress = () => {
+            if (longPressTimer !== null) {
+              window.clearTimeout(longPressTimer);
+              longPressTimer = null;
+            }
+          };
+
+          card.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            if (Date.now() < ignoreContextMenuUntil) return;
+            toggleWeight();
           });
+          card.addEventListener("pointerdown", (event) => {
+            if (event.pointerType !== "touch") return;
+            touchStartX = event.clientX;
+            touchStartY = event.clientY;
+            cancelLongPress();
+            longPressTimer = window.setTimeout(() => {
+              longPressTimer = null;
+              ignoreContextMenuUntil = Date.now() + 1000;
+              suppressClickUntil = Date.now() + 700;
+              toggleWeight();
+            }, 650);
+          });
+          card.addEventListener("pointermove", (event) => {
+            if (event.pointerType !== "touch" || longPressTimer === null) return;
+            const movedX = event.clientX - touchStartX;
+            const movedY = event.clientY - touchStartY;
+            if (Math.hypot(movedX, movedY) > 10) cancelLongPress();
+          });
+          card.addEventListener("pointerup", cancelLongPress);
+          card.addEventListener("pointercancel", cancelLongPress);
+          card.addEventListener(
+            "click",
+            (event) => {
+              if (Date.now() >= suppressClickUntil) return;
+              event.preventDefault();
+              event.stopPropagation();
+            },
+            true,
+          );
         }
 
         // footer row
