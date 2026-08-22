@@ -74,9 +74,7 @@
         display: none;
       }
       .card.has-private-weight {
-        -webkit-touch-callout: none;
-        touch-action: pan-y;
-        user-select: none;
+        touch-action: manipulation;
       }
       .sub-subtitle {
         display: flex;
@@ -668,17 +666,12 @@
             weight.hidden = !revealedWeightCards.has(weightCardKey);
           };
 
-          let longPressTimer = null;
-          let touchStartX = 0;
-          let touchStartY = 0;
+          const activeTouchPoints = new Map();
+          let twoFingerStartPoints = new Map();
+          let twoFingerStartedAt = 0;
+          let twoFingerCandidate = false;
           let ignoreContextMenuUntil = 0;
           let suppressClickUntil = 0;
-          const cancelLongPress = () => {
-            if (longPressTimer !== null) {
-              window.clearTimeout(longPressTimer);
-              longPressTimer = null;
-            }
-          };
 
           card.addEventListener("contextmenu", (event) => {
             event.preventDefault();
@@ -687,24 +680,52 @@
           });
           card.addEventListener("pointerdown", (event) => {
             if (event.pointerType !== "touch") return;
-            touchStartX = event.clientX;
-            touchStartY = event.clientY;
-            cancelLongPress();
-            longPressTimer = window.setTimeout(() => {
-              longPressTimer = null;
+            activeTouchPoints.set(event.pointerId, {
+              x: event.clientX,
+              y: event.clientY,
+            });
+            if (activeTouchPoints.size === 2) {
+              twoFingerCandidate = true;
+              twoFingerStartedAt = Date.now();
+              twoFingerStartPoints = new Map(activeTouchPoints);
+            } else if (activeTouchPoints.size > 2) {
+              twoFingerCandidate = false;
+            }
+          });
+          card.addEventListener("pointermove", (event) => {
+            if (event.pointerType !== "touch") return;
+            const start = twoFingerStartPoints.get(event.pointerId);
+            activeTouchPoints.set(event.pointerId, {
+              x: event.clientX,
+              y: event.clientY,
+            });
+            if (
+              twoFingerCandidate &&
+              start &&
+              Math.hypot(event.clientX - start.x, event.clientY - start.y) > 12
+            ) {
+              twoFingerCandidate = false;
+            }
+          });
+          card.addEventListener("pointerup", (event) => {
+            if (event.pointerType !== "touch") return;
+            activeTouchPoints.delete(event.pointerId);
+            if (activeTouchPoints.size !== 0) return;
+
+            const wasQuickTap = Date.now() - twoFingerStartedAt <= 500;
+            if (twoFingerCandidate && wasQuickTap) {
               ignoreContextMenuUntil = Date.now() + 1000;
               suppressClickUntil = Date.now() + 700;
               toggleWeight();
-            }, 650);
+            }
+            twoFingerCandidate = false;
+            twoFingerStartPoints.clear();
           });
-          card.addEventListener("pointermove", (event) => {
-            if (event.pointerType !== "touch" || longPressTimer === null) return;
-            const movedX = event.clientX - touchStartX;
-            const movedY = event.clientY - touchStartY;
-            if (Math.hypot(movedX, movedY) > 10) cancelLongPress();
+          card.addEventListener("pointercancel", (event) => {
+            activeTouchPoints.delete(event.pointerId);
+            twoFingerCandidate = false;
+            twoFingerStartPoints.clear();
           });
-          card.addEventListener("pointerup", cancelLongPress);
-          card.addEventListener("pointercancel", cancelLongPress);
           card.addEventListener(
             "click",
             (event) => {
