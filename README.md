@@ -11,6 +11,9 @@ The overview includes:
 
 - Selected profile values: age, sex, height, latest weight, goal weight and activity factor.
 - Daily/weekly maintenance calories (TDEE), resting calories (BMR), BMI and reference range.
+- A weight-history line chart, defaulting to 30 days, with 7/14/30/60/90-day
+  views. Hover, tap or keyboard-focus a point for its date and weight. The chart
+  shows the first-to-last recorded weight change in the selected period.
 - Required weekly loss, daily deficit and calculated intake for the selected departure.
 - Eight daily deficit scenarios: **200, 400, 600, 800, 1,000, 1,200, 1,400 and 1,600 kcal**.
   Each shows daily intake, weekly loss and projected weight at the holiday start.
@@ -33,6 +36,15 @@ publishes current/goal weight, age (not birth date), sex, height, activity facto
 BMR, TDEE and measurement/calculation dates. The reveal gesture is a display
 choice, not access control: this static site's JSON is publicly readable.
 Credentials and the remaining Garmin profile stay out of the published data.
+
+The sync also publishes up to 90 days of weight history, including today, as
+date/kg pairs for the latest weigh-in per Garmin local calendar day. It requests
+the date-range endpoint each sync, so new weigh-ins and corrections appear.
+The chart uses actual calendar spacing and draws markers only for recorded
+days; connecting lines do not create weigh-ins on missing days. Its vertical
+axis fits the observed weights. An empty period shows an explicit empty state.
+If Garmin history is temporarily unavailable, prior in-window history is
+retained and the panel labels it as stale with its last successful sync date.
 
 1. Install the pinned Garmin client:
 
