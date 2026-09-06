@@ -71,6 +71,8 @@
         cursor: pointer;
       }
       .weight-status {
+        white-space: pre-line;
+        line-height: 1.5;
         margin: -10px 0 0;
         color: #8b0000;
         font-size: 15px;
@@ -352,6 +354,7 @@
       </section>
     </div>
 
+    <script src="weight-plan.js"></script>
     <script>
       // 1) Base URL for your own images
       const BASE_IMG_URL = "./img/";
@@ -657,10 +660,9 @@
           card.classList.add("has-private-weight");
           weight.className = "weight-status";
           weight.hidden = !revealedWeightCards.has(weightCardKey);
-          weight.textContent =
-            weightStatus.kgToLose > 0
-              ? `${weightStatus.kgToLose.toLocaleString("en-GB", { maximumFractionDigits: 1 })} kg to lose`
-              : "Target weight reached";
+          const goalDays = Math.round((Date.UTC(travelMid.getFullYear(), travelMid.getMonth(), travelMid.getDate()) -
+            Date.UTC(todayMid.getFullYear(), todayMid.getMonth(), todayMid.getDate())) / 86400000);
+          weight.textContent = formatWeightPlan(weightStatus, goalDays);
           cardContent.appendChild(weight);
 
           const toggleWeight = () => {
