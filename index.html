@@ -319,6 +319,7 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="weight-modal.css?v=1" />
   </head>
   <body>
     <button id="toggleButton" class="active">All/Future</button>
@@ -354,7 +355,8 @@
       </section>
     </div>
 
-    <script src="weight-plan.js"></script>
+    <script src="weight-plan.js?v=2"></script>
+    <script src="weight-modal.js?v=1"></script>
     <script>
       // 1) Base URL for your own images
       const BASE_IMG_URL = "./img/";
@@ -656,13 +658,12 @@
 
         if (!isPast && weightStatus && Number.isFinite(weightStatus.kgToLose)) {
           const weightCardKey = `${travel.city}|${travel.date}`;
-          const weight = document.createElement("p");
+          const weight = document.createElement("button");
           card.classList.add("has-private-weight");
           weight.className = "weight-status";
           weight.hidden = !revealedWeightCards.has(weightCardKey);
-          const goalDays = Math.round((Date.UTC(travelMid.getFullYear(), travelMid.getMonth(), travelMid.getDate()) -
-            Date.UTC(todayMid.getFullYear(), todayMid.getMonth(), todayMid.getDate())) / 86400000);
-          weight.textContent = formatWeightPlan(weightStatus, goalDays);
+          weight.textContent = WeightPlan.formatWeightPlan(weightStatus);
+          WeightOverview.bind(weight, travel, () => weightStatus);
           cardContent.appendChild(weight);
 
           const toggleWeight = () => {
@@ -783,11 +784,8 @@
           if (!response.ok) return;
 
           const health = await response.json();
-          if (health.kgToLose === null || health.kgToLose === "") return;
-          const kgToLose = Number(health.kgToLose);
-          if (!Number.isFinite(kgToLose)) return;
-
-          weightStatus = { kgToLose: Math.max(0, kgToLose) };
+          weightStatus = WeightPlan.normalizeStatus(health);
+          if (!weightStatus) return;
           if (travels.length) displayTravels();
         } catch (error) {
           console.warn("Could not load Garmin weight status.", error);
