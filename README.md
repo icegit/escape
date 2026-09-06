@@ -15,6 +15,10 @@ The overview includes:
 - Eight daily deficit scenarios: **200, 400, 600, 800, 1,000, 1,200, 1,400 and 1,600 kcal**.
   Each shows daily intake, weekly loss and projected weight at the holiday start.
 - Expandable activity comparisons and three macro splits for maintenance, cutting or gaining.
+- A green **Target match** marks the smallest listed deficit that reaches the
+  departure goal with calculated intake at least 1,000 kcal/day. If no row
+  qualifies, the table explains why; reached goals and same-day departures do
+  not select a cutting row. This is a mathematical match, not a clinical recommendation.
 
 The layout takes inspiration from [TDEECalculator.net](https://tdeecalculator.net/).
 BMI categories follow the [CDC adult BMI reference](https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html).
@@ -54,13 +58,29 @@ Set `GARMIN_TARGET_WEIGHT_KG` as a repository secret. Garmin's formal Goals API
 returns activity goals but does not expose the separate Weight-page target.
 The target is configured privately, but the overview now publishes its value.
 
-TDEE uses the latest weight plus Garmin `userData.height` (cm), `birthDate`
+BMR uses the latest weight plus Garmin `userData.height` (cm), `birthDate`
 and `gender`, with the [Mifflin–St Jeor equation](https://ajcn.nutrition.org/article/S0002-9165%2823%2916698-6/fulltext).
-Set the optional `GARMIN_ACTIVITY_FACTOR` Actions secret to an activity multiplier
-(1.2–2.4). The default is a sedentary assumption of 1.2, displayed in the overview.
-Garmin's activity-class number is not treated as a TDEE multiplier. Missing
-profile data keeps weight projections available and marks profile-based metrics
-unavailable. The loader retains all validated overview fields, including TDEE.
+TDEE now uses average Garmin **total daily calories** (active plus resting) over
+the previous 14 completed calendar days in Europe/Amsterdam. Activity factor is
+that average divided by the calculated BMR; no additional exercise calories or
+activity multiplier are added to Garmin's total.
+
+The daily summaries must match the requested date, cover at least 23 hours
+(allowing spring DST), include consistent finite calorie totals, and contain at
+least 16 hours of measurable awake/asleep tracking. That duration is a coverage
+proxy, not exact watch wear time. Zero active calories are allowed when coverage
+is sufficient. Missing, incomplete and failed days are excluded from both sum
+and divisor. At least 7 valid days are required. The overview reports the number
+used, window end date and average active/resting/total calories; individual daily
+records are not published. The successful aggregate is reused during that day's
+half-hourly syncs, with the multiplier recomputed for the latest BMR. It refreshes
+on the next local day; insufficient history is retried each sync.
+
+If fewer than 7 days qualify, TDEE falls back to BMR × `GARMIN_ACTIVITY_FACTOR`
+(optional secret, 1.2–2.4; default 1.2). The UI explicitly labels this as a
+fallback and shows the coverage count. Garmin's activity-class number is not used.
+Missing profile data keeps weight projections available and marks profile-based
+metrics unavailable. Garmin calorie values remain wearable estimates.
 
 The deficit is `kg remaining × 7,700 / calendar days remaining`. Scenario weight
 is `latest weight − daily deficit × days / 7,700`. These static estimates do not
