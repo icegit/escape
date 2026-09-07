@@ -10,7 +10,7 @@ then returns focus to the trigger. Native `<dialog>` provides modal focus trappi
 The overview includes:
 
 - Selected profile values: age, sex, height, latest weight, goal weight and activity factor.
-- Today's Garmin-adjusted calorie allowance, activity adjustment, consumed/remaining calories and macros.
+- Today's calculated departure-plan allowance, Garmin activity adjustment and Garmin/MFP consumption. Remaining calories are calculated as plan allowance minus consumption; macros stay unavailable because the current wrapper response does not establish them.
 - Daily/weekly maintenance calories (TDEE), resting calories (BMR), and colour-coded BMI below weight history.
 - A weight-history line chart, defaulting to 30 days, with 7/14/30/60/90-day
   views. Hover, tap or keyboard-focus a point for its date and weight. The chart
