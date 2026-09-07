@@ -33,9 +33,8 @@ The configured goal is separate from the BMI reference range.
 
 The browser never connects to Garmin. GitHub Actions reads the latest weigh-in
 and profile, combines them with the target-weight secret, and refreshes
-`health.json` on an Amsterdam-time schedule. It checks every 15 minutes from
-06:00 through 11:45, when morning weigh-ins are most likely, then every 30
-minutes for the rest of the day. A lightweight gate
+`health.json` every 15 minutes from 06:00 through 23:45 Amsterdam time. It does
+not contact Garmin between midnight and 06:00. A lightweight gate
 converts GitHub's UTC cron candidates to `Europe/Amsterdam`, so daylight-saving
 changes do not shift the local schedule. Manual workflow runs always proceed.
 To support the requested overview, this file now
