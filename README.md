@@ -10,7 +10,8 @@ then returns focus to the trigger. Native `<dialog>` provides modal focus trappi
 The overview includes:
 
 - Selected profile values: age, sex, height, latest weight, goal weight and activity factor.
-- Daily/weekly maintenance calories (TDEE), resting calories (BMR), BMI and reference range.
+- Today's Garmin-adjusted calorie allowance, activity adjustment, consumed/remaining calories and macros.
+- Daily/weekly maintenance calories (TDEE), resting calories (BMR), and colour-coded BMI below weight history.
 - A weight-history line chart, defaulting to 30 days, with 7/14/30/60/90-day
   views. Hover, tap or keyboard-focus a point for its date and weight. The chart
   shows the first-to-last recorded weight change in the selected period.
@@ -32,8 +33,8 @@ The configured goal is separate from the BMI reference range.
 The browser never connects to Garmin. GitHub Actions reads the latest weigh-in
 and profile, combines them with the target-weight secret, and refreshes
 `health.json` on an Amsterdam-time schedule. It checks every 15 minutes from
-06:00 through 11:45, when morning weigh-ins are most likely, then every two
-hours at 12:00, 14:00, …, 22:00, 00:00, 02:00 and 04:00. A lightweight gate
+06:00 through 11:45, when morning weigh-ins are most likely, then every 30
+minutes for the rest of the day. A lightweight gate
 converts GitHub's UTC cron candidates to `Europe/Amsterdam`, so daylight-saving
 changes do not shift the local schedule. Manual workflow runs always proceed.
 To support the requested overview, this file now
