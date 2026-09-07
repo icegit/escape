@@ -784,6 +784,15 @@
           if (!response.ok) return;
 
           const health = await response.json();
+          try {
+            const historyResponse = await fetch(`./weight-history.json?v=${Date.now()}`, { cache: "no-store" });
+            if (historyResponse.ok) {
+              const archive = await historyResponse.json();
+              health.weightHistory = [...(Array.isArray(archive) ? archive : []), ...(Array.isArray(health.weightHistory) ? health.weightHistory : [])];
+            }
+          } catch (error) {
+            console.warn("Could not load archived weight history.", error);
+          }
           weightStatus = WeightPlan.normalizeStatus(health);
           if (!weightStatus) return;
           if (travels.length) displayTravels();

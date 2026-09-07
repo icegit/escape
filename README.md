@@ -12,7 +12,7 @@ The overview includes:
 - Selected profile values: age, sex, height, latest weight, goal weight and activity factor.
 - Today's calculated departure-plan allowance, Garmin activity adjustment and Garmin/MFP consumption. Remaining calories are calculated as plan allowance minus consumption; macros stay unavailable because the current wrapper response does not establish them.
 - Daily/weekly maintenance calories (TDEE), resting calories (BMR), and colour-coded BMI below weight history.
-- A weight-history line chart, defaulting to 30 days, with 7/14/30/60/90-day
+- A weight-history line chart, defaulting to 30 days, with 7/14/30/60/90-day and full-history
   views. Hover, tap or keyboard-focus a point for its date and weight. The chart
   shows the first-to-last recorded weight change in the selected period.
 - Required weekly loss, daily deficit and calculated intake for the selected departure.
@@ -51,6 +51,9 @@ days; connecting lines do not create weigh-ins on missing days. Its vertical
 axis fits the observed weights. An empty period shows an explicit empty state.
 If Garmin history is temporarily unavailable, prior in-window history is
 retained and the panel labels it as stale with its last successful sync date.
+The historical archive in `weight-history.json` contains the 605 date/weight
+pairs imported from the Garmin measurement summary for 2019-09-09 through
+2026-09-07. Current Garmin data takes precedence when dates overlap.
 
 1. Install the pinned Garmin client:
 
