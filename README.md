@@ -12,7 +12,8 @@ The overview includes:
 - Selected profile values: age, sex, height, latest weight, goal weight and activity factor.
 - Today's calculated departure-plan allowance, Garmin activity adjustment and Garmin/MFP consumption. Remaining calories are calculated as plan allowance minus consumption; macros stay unavailable because the current wrapper response does not establish them.
 - Daily/weekly maintenance calories (TDEE), resting calories (BMR), and colour-coded BMI below weight history.
-- A weight-history line chart, defaulting to 30 days, with 7/14/30/60/90-day and full-history
+- A weight-history line chart, defaulting to 1 month, with 7-day, 14-day,
+  1/2/3/6-month, 1/2/3-year and full-history
   views. Hover, tap or keyboard-focus a point for its date and weight. The chart
   shows the first-to-last recorded weight change in the selected period.
 - Required weekly loss, daily deficit and calculated intake for the selected departure.
