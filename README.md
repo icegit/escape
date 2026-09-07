@@ -31,7 +31,12 @@ The configured goal is separate from the BMI reference range.
 
 The browser never connects to Garmin. GitHub Actions reads the latest weigh-in
 and profile, combines them with the target-weight secret, and refreshes
-`health.json` every 30 minutes. To support the requested overview, this file now
+`health.json` on an Amsterdam-time schedule. It checks every 15 minutes from
+06:00 through 11:45, when morning weigh-ins are most likely, then every two
+hours at 12:00, 14:00, …, 22:00, 00:00, 02:00 and 04:00. A lightweight gate
+converts GitHub's UTC cron candidates to `Europe/Amsterdam`, so daylight-saving
+changes do not shift the local schedule. Manual workflow runs always proceed.
+To support the requested overview, this file now
 publishes current/goal weight, age (not birth date), sex, height, activity factor,
 BMR, TDEE and measurement/calculation dates. The reveal gesture is a display
 choice, not access control: this static site's JSON is publicly readable.
