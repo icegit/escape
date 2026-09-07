@@ -12,6 +12,7 @@ The overview includes:
 - Selected profile values: age, sex, height, latest weight, goal weight and activity factor.
 - Today's calculated departure-plan allowance, Garmin activity adjustment and Garmin/MFP consumption. Remaining calories are calculated as plan allowance minus consumption; macros stay unavailable because the current wrapper response does not establish them.
 - Daily/weekly maintenance calories (TDEE), resting calories (BMR), and colour-coded BMI below weight history.
+- The latest successful Garmin refresh time in Amsterdam time.
 - A weight-history line chart, defaulting to 1 month, with 7-day, 14-day,
   1/2/3/6-month, 1/2/3-year and full-history
   views. Hover, tap or keyboard-focus a point for its date and weight. The chart
@@ -33,8 +34,8 @@ The configured goal is separate from the BMI reference range.
 
 The browser never connects to Garmin. GitHub Actions reads the latest weigh-in
 and profile, combines them with the target-weight secret, and refreshes
-`health.json` every 15 minutes from 06:00 through 23:45 Amsterdam time. It does
-not contact Garmin between midnight and 06:00. A lightweight gate
+`health.json` every 15 minutes from 06:00 through 23:45 Amsterdam time, plus a
+final daily sync at 00:01. It does not contact Garmin from 00:02 through 05:59. A lightweight gate
 converts GitHub's UTC cron candidates to `Europe/Amsterdam`, so daylight-saving
 changes do not shift the local schedule. Manual workflow runs always proceed.
 To support the requested overview, this file now
