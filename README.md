@@ -129,3 +129,22 @@ DOM tests exercise the actual page loader, compact label, reveal gesture,
 click/tap path, mouse-hover delay, modal contents, macro selector and closing.
 They emulate native dialog opening; browser focus trapping and responsive layout
 still require a browser check.
+
+
+### Live daily calorie balances
+
+Each Garmin sync publishes today's reported total, resting and active calories.
+The reported total takes precedence; resting plus active is used only when the
+total is missing and both components are available. Activity is never added twice.
+
+The overview shows burned-so-far minus the departure plan's full daily deficit,
+and a projected daily allowance. The projection extends resting calories at their
+pace as of the sync's Amsterdam local time through 24 hours, adding no future
+activity. It uses total burn + resting calories * (24 / elapsed local hours - 1),
+then subtracts the same deficit. Both views subtract logged food for the remaining
+balance. These are estimates; a negative morning balance is not a full-day food
+target. Missing or previous-day data is unavailable; midnight has no projection.
+
+The open page checks for newly published data every minute and on returning to the
+page. An open overview updates its balances and single sync timestamp in place.
+Garmin data itself still depends on the scheduled workflow and watch uploads.

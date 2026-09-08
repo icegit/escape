@@ -796,6 +796,7 @@
           weightStatus = WeightPlan.normalizeStatus(health);
           if (!weightStatus) return;
           if (travels.length) displayTravels();
+          WeightOverview.refresh(weightStatus);
         } catch (error) {
           console.warn("Could not load Garmin weight status.", error);
         }
@@ -804,6 +805,8 @@
       // initial render
       loadTravels();
       loadWeightStatus();
+      setInterval(() => { if (!document.hidden) loadWeightStatus(); }, 60000);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) loadWeightStatus(); });
     </script>
   </body>
 </html>
