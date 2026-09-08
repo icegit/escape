@@ -148,3 +148,10 @@ target. Missing or previous-day data is unavailable; midnight has no projection.
 The open page checks for newly published data every minute and on returning to the
 page. An open overview updates its balances and single sync timestamp in place.
 Garmin data itself still depends on the scheduled workflow and watch uploads.
+
+### External scheduling
+
+The Cloudflare Worker in `scheduler/` adds an independent timer and stale-data
+retries. See `scheduler/README.md` for setup, credential scope, monitoring, and
+rollback. It must be deployed with its dispatch secret before it is active;
+committing this directory alone does not activate the external timer.
