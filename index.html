@@ -70,20 +70,6 @@
         font-weight: 500;
         cursor: pointer;
       }
-      .weight-status {
-        white-space: pre-line;
-        line-height: 1.5;
-        margin: -10px 0 0;
-        color: #8b0000;
-        font-size: 15px;
-        font-weight: 500;
-      }
-      .weight-status[hidden] {
-        display: none;
-      }
-      .card.has-private-weight {
-        touch-action: manipulation;
-      }
       .sub-subtitle {
         display: flex;
         justify-content: space-between;
@@ -103,9 +89,6 @@
       }
       .past .subtitle {
         color: gray !important;
-      }
-      .past .weight-status {
-        color: gray;
       }
       @media (max-width: 800px) {
         .container {
@@ -319,7 +302,6 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="weight-modal.css?v=5" />
   </head>
   <body>
     <button id="toggleButton" class="active">All/Future</button>
@@ -355,15 +337,11 @@
       </section>
     </div>
 
-    <script src="weight-plan.js?v=5"></script>
-    <script src="weight-modal.js?v=4"></script>
     <script>
       // 1) Base URL for your own images
       const BASE_IMG_URL = "./img/";
       // Data lives in travels.json (same folder as this file)
       let travels = [];
-      let weightStatus = null;
-      const revealedWeightCards = new Set();
       const tripModal = document.getElementById("tripDetailsModal");
       const tripDetailsImage = document.getElementById("tripDetailsImage");
       const tripDetailsTitle = document.getElementById("tripDetailsTitle");
@@ -656,96 +634,6 @@
         cardContent.appendChild(titleButton);
         cardContent.appendChild(subtitle);
 
-        if (!isPast && weightStatus && Number.isFinite(weightStatus.kgToLose)) {
-          const weightCardKey = `${travel.city}|${travel.date}`;
-          const weight = document.createElement("button");
-          card.classList.add("has-private-weight");
-          weight.className = "weight-status";
-          weight.hidden = !revealedWeightCards.has(weightCardKey);
-          weight.textContent = WeightPlan.formatWeightPlan(weightStatus);
-          WeightOverview.bind(weight, travel, () => weightStatus);
-          cardContent.appendChild(weight);
-
-          const toggleWeight = () => {
-            if (revealedWeightCards.has(weightCardKey)) {
-              revealedWeightCards.delete(weightCardKey);
-            } else {
-              revealedWeightCards.add(weightCardKey);
-            }
-            weight.hidden = !revealedWeightCards.has(weightCardKey);
-          };
-
-          const activeTouchPoints = new Map();
-          let twoFingerStartPoints = new Map();
-          let twoFingerStartedAt = 0;
-          let twoFingerCandidate = false;
-          let ignoreContextMenuUntil = 0;
-          let suppressClickUntil = 0;
-
-          card.addEventListener("contextmenu", (event) => {
-            event.preventDefault();
-            if (Date.now() < ignoreContextMenuUntil) return;
-            toggleWeight();
-          });
-          card.addEventListener("pointerdown", (event) => {
-            if (event.pointerType !== "touch") return;
-            activeTouchPoints.set(event.pointerId, {
-              x: event.clientX,
-              y: event.clientY,
-            });
-            if (activeTouchPoints.size === 2) {
-              twoFingerCandidate = true;
-              twoFingerStartedAt = Date.now();
-              twoFingerStartPoints = new Map(activeTouchPoints);
-            } else if (activeTouchPoints.size > 2) {
-              twoFingerCandidate = false;
-            }
-          });
-          card.addEventListener("pointermove", (event) => {
-            if (event.pointerType !== "touch") return;
-            const start = twoFingerStartPoints.get(event.pointerId);
-            activeTouchPoints.set(event.pointerId, {
-              x: event.clientX,
-              y: event.clientY,
-            });
-            if (
-              twoFingerCandidate &&
-              start &&
-              Math.hypot(event.clientX - start.x, event.clientY - start.y) > 12
-            ) {
-              twoFingerCandidate = false;
-            }
-          });
-          card.addEventListener("pointerup", (event) => {
-            if (event.pointerType !== "touch") return;
-            activeTouchPoints.delete(event.pointerId);
-            if (activeTouchPoints.size !== 0) return;
-
-            const wasQuickTap = Date.now() - twoFingerStartedAt <= 500;
-            if (twoFingerCandidate && wasQuickTap) {
-              ignoreContextMenuUntil = Date.now() + 1000;
-              suppressClickUntil = Date.now() + 700;
-              toggleWeight();
-            }
-            twoFingerCandidate = false;
-            twoFingerStartPoints.clear();
-          });
-          card.addEventListener("pointercancel", (event) => {
-            activeTouchPoints.delete(event.pointerId);
-            twoFingerCandidate = false;
-            twoFingerStartPoints.clear();
-          });
-          card.addEventListener(
-            "click",
-            (event) => {
-              if (Date.now() >= suppressClickUntil) return;
-              event.preventDefault();
-              event.stopPropagation();
-            },
-            true,
-          );
-        }
-
         // footer row
         const sub = document.createElement("div");
         sub.className = "sub-subtitle";
@@ -776,37 +664,8 @@
         }
       }
 
-      async function loadWeightStatus() {
-        try {
-          const response = await fetch(`./health.json?v=${Date.now()}`, {
-            cache: "no-store",
-          });
-          if (!response.ok) return;
-
-          const health = await response.json();
-          try {
-            const historyResponse = await fetch(`./weight-history.json?v=${Date.now()}`, { cache: "no-store" });
-            if (historyResponse.ok) {
-              const archive = await historyResponse.json();
-              health.weightHistory = [...(Array.isArray(archive) ? archive : []), ...(Array.isArray(health.weightHistory) ? health.weightHistory : [])];
-            }
-          } catch (error) {
-            console.warn("Could not load archived weight history.", error);
-          }
-          weightStatus = WeightPlan.normalizeStatus(health);
-          if (!weightStatus) return;
-          if (travels.length) displayTravels();
-          WeightOverview.refresh(weightStatus);
-        } catch (error) {
-          console.warn("Could not load Garmin weight status.", error);
-        }
-      }
-
       // initial render
       loadTravels();
-      loadWeightStatus();
-      setInterval(() => { if (!document.hidden) loadWeightStatus(); }, 60000);
-      document.addEventListener('visibilitychange', () => { if (!document.hidden) loadWeightStatus(); });
     </script>
   </body>
 </html>
