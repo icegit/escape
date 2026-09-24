@@ -978,6 +978,23 @@
     ]
   },
   {
+    "city": "Cyprus",
+    "date": "2026-10-05",
+    "distance": 2946,
+    "days": 3,
+    "photo": "cypruschallenge.webp",
+    "stays": [
+      {
+        "hotel": null,
+        "address": "Nicosia, Cyprus",
+        "latitude": 35.1856,
+        "longitude": 33.3823,
+        "checkIn": "2026-10-05",
+        "checkOut": "2026-10-08"
+      }
+    ]
+  },
+  {
     "city": "Tunisia",
     "date": "2026-10-10",
     "distance": 1778,
